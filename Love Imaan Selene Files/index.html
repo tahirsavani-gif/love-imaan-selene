@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Love, Imaan Selene</title>
+  <meta name="description" content="Life coaching, podcast, and travel — a love letter to your undefined, miraculous self." />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sage: '#B8CFB4',
+            'sage-light': '#d4e4d1',
+            'sage-dark': '#8aaa85',
+            espresso: '#3E2F2B',
+            'espresso-light': '#6b5551',
+            gold: '#E1BA66',
+            'gold-dark': '#c9a145',
+            linen: '#F4ECE4',
+            'linen-dark': '#e8ddd0',
+            ink: '#2a1f1c',
+            muted: '#7a6965',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'serif'],
+            body: ['"DM Sans"', 'sans-serif'],
+            script: ['Caveat', 'cursive'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body class="bg-linen">
+
+  <!-- CURSOR -->
+  <div class="cursor"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- MOBILE NAV OVERLAY -->
+  <div class="mobile-nav">
+    <button class="mobile-nav-close" aria-label="Close menu">✕</button>
+    <a href="./index.html">Home</a>
+    <a href="./coaching.html">Coaching</a>
+    <a href="./podcast.html">Podcast</a>
+    <a href="./travel.html">Travel</a>
+    <a href="./newsletter.html">Newsletter</a>
+    <a href="./about.html">About</a>
+  </div>
+
+  <!-- NAV -->
+  <nav aria-label="Main navigation">
+    <a href="./index.html" class="nav-wordmark">Love, Imaan Selene</a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="./coaching.html">Coaching</a></li>
+      <li><a href="./podcast.html">Podcast</a></li>
+      <li><a href="./travel.html">Travel</a></li>
+      <li><a href="./newsletter.html">Newsletter</a></li>
+      <li><a href="./about.html">About</a></li>
+    </ul>
+
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main>
+
+    <!-- ══════════════════════════════════════ -->
+    <!--  HERO                                  -->
+    <!-- ══════════════════════════════════════ -->
+    <section class="hero" aria-label="Hero">
+
+      <!-- Watercolour blob bg -->
+      <div class="watercolour-blob" style="width:500px;height:500px;background:var(--sage);top:-100px;left:-120px;"></div>
+
+      <div class="hero-left">
+
+        <span class="hero-eyebrow">a love letter to your undefined self</span>
+
+        <h1 class="hero-headline">
+          There's a reason<br>
+          <em>you're here.</em>
+        </h1>
+
+        <p class="hero-sub">
+          Your soul is undefined — and that is the most beautiful thing about you. Roll the dice.
+        </p>
+
+        <div class="hero-cta-row">
+          <a href="./coaching.html" class="btn btn-dark">Work with Imaan</a>
+          <a href="./about.html" class="btn btn-outline">
+            Read her story
+            <svg width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 4H14M14 4L11 1M14 4L11 7" stroke="currentColor" stroke-width="1"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Floating tags -->
+        <div class="flex gap-3 mt-10 flex-wrap" style="opacity:0;animation:fadeUp 0.9s ease 1s forwards;">
+          <span style="font-family:var(--font-body);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--sage);padding:0.35rem 0.85rem;">Life Coach</span>
+          <span style="font-family:var(--font-body);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--sage);padding:0.35rem 0.85rem;">Podcaster</span>
+          <span style="font-family:var(--font-body);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--sage);padding:0.35rem 0.85rem;">Explorer</span>
+        </div>
+      </div>
+
+      <!-- Hero Image -->
+      <div class="hero-right">
+        <div class="hero-img-container">
+          <!-- Placeholder — replace with Imaan's portrait -->
+          <img
+            src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=900&q=80"
+            alt="Imaan Selene"
+            style="filter: saturate(0.85);"
+          />
+        </div>
+
+        <!-- Botanical SVG: monstera leaf, top right -->
+        <svg class="botanical-overlay" style="top:-30px;right:-20px;width:260px;" viewBox="0 0 200 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M100 10 C60 40, 20 100, 30 180 C40 240, 100 270, 100 270 C100 270, 160 240, 170 180 C180 100, 140 40, 100 10Z" fill="var(--sage-dark)" opacity="0.6"/>
+          <path d="M100 60 C80 80, 40 120, 45 170" stroke="var(--espresso)" stroke-width="1" opacity="0.3" fill="none"/>
+          <path d="M100 60 C120 80, 155 120, 152 168" stroke="var(--espresso)" stroke-width="1" opacity="0.3" fill="none"/>
+          <path d="M100 60 L100 270" stroke="var(--espresso)" stroke-width="1.5" opacity="0.25" fill="none"/>
+          <!-- Cutouts -->
+          <ellipse cx="68" cy="140" rx="18" ry="12" fill="var(--linen)" opacity="0.8" transform="rotate(-20 68 140)"/>
+          <ellipse cx="132" cy="145" rx="18" ry="12" fill="var(--linen)" opacity="0.8" transform="rotate(20 132 145)"/>
+        </svg>
+
+        <!-- Botanical SVG: palm frond, bottom left -->
+        <svg class="botanical-overlay" style="bottom:-20px;left:-10px;width:180px;transform:rotate(15deg);" viewBox="0 0 160 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M80 220 C80 220, 10 160, 5 100 C0 50, 40 10, 80 20" stroke="var(--sage)" stroke-width="2" fill="none" opacity="0.7"/>
+          <path d="M80 180 C60 160, 15 140, 5 100" stroke="var(--sage)" stroke-width="1" fill="none" opacity="0.5"/>
+          <path d="M80 160 C50 150, 20 120, 8 80" stroke="var(--sage)" stroke-width="1" fill="none" opacity="0.4"/>
+          <path d="M80 200 C100 180, 140 155, 150 110" stroke="var(--sage)" stroke-width="1" fill="none" opacity="0.5"/>
+          <path d="M80 170 C105 155, 135 130, 140 90" stroke="var(--sage)" stroke-width="1" fill="none" opacity="0.4"/>
+        </svg>
+      </div>
+
+    </section>
+
+    <!-- ══════════════════════════════════════ -->
+    <!--  PHILOSOPHY STRIP                      -->
+    <!-- ══════════════════════════════════════ -->
+    <div style="background:var(--sage-light);padding:1.1rem 0;overflow:hidden;border-top:1px solid rgba(184,207,180,0.5);border-bottom:1px solid rgba(184,207,180,0.5);" aria-hidden="true">
+      <div class="ticker-content" style="display:flex;gap:3rem;white-space:nowrap;animation:ticker 22s linear infinite;">
+        <span style="font-family:var(--font-display);font-style:italic;font-size:0.95rem;color:var(--espresso-light);">your value is inherent</span>
+        <span style="color:var(--gold-dark);">✦</span>
+        <span style="font-family:var(--font-display);font-style:italic;font-size:0.95rem;color:var(--espresso-light);">undefined &amp; becoming</span>
+        <span style="color:var(--gold-dark);">✦</span>
+        <span style="font-family:var(--font-display);font-style:italic;font-size:0.95rem;color:var(--espresso-light);">blessed to be here</span>
+        <span style="color:var(--gold-dark);">✦</span>
+        <span style="font-family:var(--font-display);font-style:italic;font-size:0.95rem;color:var(--espresso-light);">life is miraculous</span>
+        <span style="color:var(--gold-dark);">✦</span>
+        <span style="font-family:var(--font-display);font-style:italic;font-size:0.95rem;color:var(--espresso-light);">roll the dice</span>
+        <span style="color:var(--gold-dark);">✦</span>
+        <span style="font-family:var(--font-display);font-style:italic;font-size:0.95rem;color:var(--espresso-light);">we're floating on a giant rock</span>
+        <span style="color:var(--gold-dark);">✦</span>
+        <!-- Repeat for seamless loop -->
+        <span style="font-family:var(--font-display);font-style:italic;font-size:0.95rem;color:var(--espresso-light);">your value is inherent</span>
+        <span style="color:var(--gold-dark);">✦</span>
+        <span style="font-family:var(--font-display);font-style:italic;font-size:0.95rem;color:var(--espresso-light);">undefined &amp; becoming</span>
+        <span style="color:var(--gold-dark);">✦</span>
+        <span style="font-family:var(--font-display);font-style:italic;font-size:0.95rem;color:var(--espresso-light);">blessed to be here</span>
+        <span style="color:var(--gold-dark);">✦</span>
+        <span style="font-family:var(--font-display);font-style:italic;font-size:0.95rem;color:var(--espresso-light);">life is miraculous</span>
+        <span style="color:var(--gold-dark);">✦</span>
+        <span style="font-family:var(--font-display);font-style:italic;font-size:0.95rem;color:var(--espresso-light);">roll the dice</span>
+        <span style="color:var(--gold-dark);">✦</span>
+        <span style="font-family:var(--font-display);font-style:italic;font-size:0.95rem;color:var(--espresso-light);">we're floating on a giant rock</span>
+        <span style="color:var(--gold-dark);">✦</span>
+      </div>
+    </div>
+    <style>
+      @keyframes ticker {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+    </style>
+
+    <!-- ══════════════════════════════════════ -->
+    <!--  BRAND PILLARS                         -->
+    <!-- ══════════════════════════════════════ -->
+    <section class="pillars" aria-label="What Imaan offers">
+
+      <!-- Watercolour blob -->
+      <div class="watercolour-blob" style="width:400px;height:400px;background:var(--gold);bottom:-80px;right:-80px;"></div>
+
+      <div class="reveal">
+        <span class="section-eyebrow">find your way in</span>
+        <h2 class="section-heading">
+          A world built for<br>
+          <em>your becoming.</em>
+        </h2>
+      </div>
+
+      <div class="pillars-grid">
+
+        <!-- Coaching -->
+        <a href="./coaching.html" class="pillar-card reveal reveal-delay-1">
+          <span class="pillar-icon">🌿</span>
+          <div class="pillar-number">01</div>
+          <h3 class="pillar-title"><em>Life</em> Coaching</h3>
+          <p class="pillar-body">
+            One-on-one sessions designed to help you move from uncertainty to clarity. Your path is already inside you — we find it together.
+          </p>
+          <span class="pillar-link">
+            Book a session
+            <svg width="16" height="8" viewBox="0 0 16 8" fill="none"><path d="M0 4H14M14 4L11 1M14 4L11 7" stroke="currentColor" stroke-width="1"/></svg>
+          </span>
+        </a>
+
+        <!-- Podcast -->
+        <a href="./podcast.html" class="pillar-card reveal reveal-delay-2">
+          <span class="pillar-icon">🎙</span>
+          <div class="pillar-number">02</div>
+          <h3 class="pillar-title"><em>Love,</em> Imaan Selene</h3>
+          <p class="pillar-body">
+            The podcast — conversations that feel like a letter from a friend who's also figuring it all out. Pull up a chair.
+          </p>
+          <span class="pillar-link">
+            Listen now
+            <svg width="16" height="8" viewBox="0 0 16 8" fill="none"><path d="M0 4H14M14 4L11 1M14 4L11 7" stroke="currentColor" stroke-width="1"/></svg>
+          </span>
+        </a>
+
+        <!-- Travel -->
+        <a href="./travel.html" class="pillar-card reveal reveal-delay-3">
+          <span class="pillar-icon">✈️</span>
+          <div class="pillar-number">03</div>
+          <h3 class="pillar-title">The <em>Travel</em> Series</h3>
+          <p class="pillar-body">
+            From Lusaka to Lisbon, Halifax to Miami — letters from the road, written in light and wandering. Come wander.
+          </p>
+          <span class="pillar-link">
+            Explore the world
+            <svg width="16" height="8" viewBox="0 0 16 8" fill="none"><path d="M0 4H14M14 4L11 1M14 4L11 7" stroke="currentColor" stroke-width="1"/></svg>
+          </span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════ -->
+    <!--  PHILOSOPHY QUOTE                       -->
+    <!-- ══════════════════════════════════════ -->
+    <section class="philosophy" aria-label="Brand philosophy">
+
+      <div class="philosophy-deco">"</div>
+
+      <blockquote class="philosophy-quote reveal">
+        Your soul is undefined.<br>
+        The events of your life<br>
+        <em style="color:var(--gold);">do not define you.</em>
+      </blockquote>
+
+      <p class="philosophy-sub reveal reveal-delay-2">— The heart of this space</p>
+
+    </section>
+
+    <!-- ══════════════════════════════════════ -->
+    <!--  UNDEFINED SECTION                     -->
+    <!-- ══════════════════════════════════════ -->
+    <section class="undefined-section" aria-label="The Undefined philosophy">
+
+      <div class="undefined-text-block">
+        <div class="undefined-big reveal">
+          Un<em>defined.</em>
+          <span class="reveal reveal-delay-1">You are not what happened to you.</span>
+        </div>
+        <p class="undefined-body reveal reveal-delay-2">
+          Imaan's biggest belief is simple and radical at once — your soul arrives in this world undefined. Open. Ready to be shaped by <em>you</em>, not by circumstance. Not by loss, not by what others decided you were. You are the author of this story, and the pen is already in your hand.
+        </p>
+        <div class="flex gap-4 mt-8 reveal reveal-delay-3">
+          <a href="./about.html" class="btn btn-dark">Meet Imaan</a>
+          <a href="./coaching.html" class="btn btn-outline">Begin the work</a>
+        </div>
+      </div>
+
+      <div class="undefined-visual reveal reveal-delay-2">
+        <!-- Concentric circles — animated, organic -->
+        <div class="undef-circle" style="width:360px;height:360px;top:50%;left:50%;transform:translate(-50%,-50%);border-color:var(--sage-light);animation:slowRotate 30s linear infinite;"></div>
+        <div class="undef-circle" style="width:280px;height:280px;top:50%;left:50%;transform:translate(-50%,-50%);border-color:var(--sage);animation:slowRotate 20s linear infinite reverse;"></div>
+        <div class="undef-circle" style="width:200px;height:200px;top:50%;left:50%;transform:translate(-50%,-50%);border-color:var(--gold);border-style:dashed;animation:slowRotate 15s linear infinite;"></div>
+        <!-- Centre word -->
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;">
+          <span style="font-family:var(--font-display);font-size:1.2rem;font-style:italic;color:var(--espresso);opacity:0.6;display:block;letter-spacing:0.05em;">you are</span>
+          <span style="font-family:var(--font-script);font-size:2.8rem;color:var(--espresso);">undefined</span>
+        </div>
+        <!-- Floating affirmations around the circles -->
+        <span style="position:absolute;top:8%;left:55%;font-family:var(--font-display);font-style:italic;font-size:0.85rem;color:var(--muted);white-space:nowrap;">worthy</span>
+        <span style="position:absolute;bottom:12%;left:10%;font-family:var(--font-display);font-style:italic;font-size:0.85rem;color:var(--muted);white-space:nowrap;">becoming</span>
+        <span style="position:absolute;top:50%;right:4%;font-family:var(--font-display);font-style:italic;font-size:0.85rem;color:var(--muted);white-space:nowrap;">free</span>
+        <span style="position:absolute;top:80%;left:50%;font-family:var(--font-display);font-style:italic;font-size:0.85rem;color:var(--muted);white-space:nowrap;">miraculous</span>
+      </div>
+
+    </section>
+
+    <!-- ══════════════════════════════════════ -->
+    <!--  ABOUT TEASER                          -->
+    <!-- ══════════════════════════════════════ -->
+    <section class="about-teaser" aria-label="About Imaan Selene">
+
+      <!-- Botanical watercolour background -->
+      <div class="watercolour-blob" style="width:350px;height:350px;background:var(--sage);top:-60px;right:80px;opacity:0.2;"></div>
+
+      <div class="about-img-wrap reveal">
+        <div class="about-deco-ring"></div>
+        <div class="about-circle-img">
+          <!-- Placeholder portrait -->
+          <img
+            src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80"
+            alt="Imaan Selene"
+          />
+        </div>
+      </div>
+
+      <div class="about-content">
+        <span class="about-letter-opener reveal">Dear curious soul,</span>
+
+        <h2 class="section-heading reveal reveal-delay-1">
+          Hi, I'm <em>Imaan.</em>
+        </h2>
+
+        <p class="about-body reveal reveal-delay-2">
+          I'm a life coach, wanderer, and letter-writer who believes deeply that you are not your story — you are the one telling it. This space is my love letter to the world. To the people still figuring it out (that's all of us), to the ones who feel a pull toward something more, and to anyone who has ever whispered: <em>there has to be more to this.</em>
+        </p>
+
+        <p class="about-body reveal reveal-delay-3">
+          There is. And it starts with the roll of a single, beautiful dice.
+        </p>
+
+        <a href="./about.html" class="btn btn-dark reveal reveal-delay-3" style="display:inline-flex;margin-top:0.5rem;">
+          Read the full story
+        </a>
+
+        <div class="about-signature reveal reveal-delay-4">Love, Imaan Selene</div>
+      </div>
+
+    </section>
+
+    <!-- ══════════════════════════════════════ -->
+    <!--  TRAVEL TEASER                         -->
+    <!-- ══════════════════════════════════════ -->
+    <section style="padding:7rem 5rem;background:var(--espresso);position:relative;overflow:hidden;" aria-label="Travel series preview">
+
+      <div class="watercolour-blob" style="width:400px;height:400px;background:var(--sage-dark);bottom:-100px;left:-80px;opacity:0.15;"></div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:2;">
+
+        <div>
+          <span class="section-eyebrow" style="color:var(--gold);">letters from the road</span>
+          <h2 class="section-heading reveal" style="color:var(--linen);">
+            The world is<br><em style="color:var(--sage);">waiting.</em>
+          </h2>
+          <p class="reveal reveal-delay-1" style="font-family:var(--font-display);font-style:italic;font-size:1.05rem;color:rgba(244,236,228,0.7);line-height:1.75;margin-top:1.25rem;max-width:380px;">
+            From Zambia's waterfalls to the cobblestones of Lisbon — Imaan travels the world and sends back dispatches. Journal entries, photographs, and the quiet revelations that only come when you're somewhere new.
+          </p>
+          <a href="./travel.html" class="btn btn-gold reveal reveal-delay-2" style="margin-top:2.5rem;display:inline-flex;">
+            Explore the series
+            <svg width="16" height="8" viewBox="0 0 16 8" fill="none"><path d="M0 4H14M14 4L11 1M14 4L11 7" stroke="currentColor" stroke-width="1"/></svg>
+          </a>
+        </div>
+
+        <!-- City dots -->
+        <div class="reveal reveal-delay-1">
+          <div style="display:flex;flex-direction:column;gap:1.25rem;">
+            <p style="font-family:var(--font-body);font-size:0.68rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--sage);margin-bottom:0.5rem;">Cities visited</p>
+            <div style="display:flex;flex-wrap:wrap;gap:0.75rem;">
+              <!-- Each city tag -->
+              <span class="city-tag" onclick="window.location='./travel.html'">Lusaka</span>
+              <span class="city-tag" onclick="window.location='./travel.html'">Livingstone</span>
+              <span class="city-tag" onclick="window.location='./travel.html'">Lisbon</span>
+              <span class="city-tag" onclick="window.location='./travel.html'">Porto</span>
+              <span class="city-tag" onclick="window.location='./travel.html'">Las Vegas</span>
+              <span class="city-tag" onclick="window.location='./travel.html'">Houston</span>
+              <span class="city-tag" onclick="window.location='./travel.html'">Halifax</span>
+              <span class="city-tag" onclick="window.location='./travel.html'">Miami</span>
+            </div>
+          </div>
+
+          <!-- Quote from the road -->
+          <div style="margin-top:3rem;padding:1.75rem;border:1px solid rgba(184,207,180,0.25);position:relative;">
+            <div style="font-family:var(--font-script);font-size:1.8rem;color:var(--gold);opacity:0.4;position:absolute;top:-10px;left:16px;">"</div>
+            <p style="font-family:var(--font-display);font-style:italic;font-size:1.05rem;color:rgba(244,236,228,0.85);line-height:1.7;">
+              Every city teaches you something you didn't know you needed to learn.
+            </p>
+            <p style="font-family:var(--font-script);font-size:0.95rem;color:var(--sage);margin-top:0.75rem;">— from the road</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <style>
+      .city-tag {
+        font-family: var(--font-body);
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(244,236,228,0.7);
+        border: 1px solid rgba(184,207,180,0.3);
+        padding: 0.5rem 1rem;
+        cursor: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+      .city-tag:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+        transform: translateY(-2px);
+      }
+    </style>
+
+    <!-- ══════════════════════════════════════ -->
+    <!--  NEWSLETTER TEASER                     -->
+    <!-- ══════════════════════════════════════ -->
+    <section class="newsletter-teaser" aria-label="Newsletter signup">
+
+      <!-- Botanical watercolour decorations -->
+      <svg style="position:absolute;top:20px;left:40px;opacity:0.07;width:140px;" viewBox="0 0 120 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M60 10 C30 40, 10 90, 15 150 C20 190, 60 200, 60 200 C60 200, 100 190, 105 150 C110 90, 90 40, 60 10Z" fill="var(--espresso)"/>
+      </svg>
+      <svg style="position:absolute;bottom:20px;right:60px;opacity:0.07;width:100px;transform:rotate(30deg);" viewBox="0 0 120 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M60 10 C30 40, 10 90, 15 150 C20 190, 60 200, 60 200 C60 200, 100 190, 105 150 C110 90, 90 40, 60 10Z" fill="var(--sage-dark)"/>
+      </svg>
+
+      <span class="envelope-icon" role="img" aria-label="Letter">✉️</span>
+
+      <span class="section-eyebrow reveal">coming soon</span>
+
+      <h2 class="reveal reveal-delay-1">
+        Letters from <em>Imaan</em>
+      </h2>
+
+      <p class="reveal reveal-delay-2">
+        A personal dispatch from Imaan's world — thoughts on growth, travel, becoming, and the beautiful undefined. Arriving in your inbox like a letter from a friend.
+      </p>
+
+      <a href="./newsletter.html" class="btn btn-dark reveal reveal-delay-3">
+        Join the waitlist
+        <svg width="16" height="8" viewBox="0 0 16 8" fill="none"><path d="M0 4H14M14 4L11 1M14 4L11 7" stroke="currentColor" stroke-width="1"/></svg>
+      </a>
+
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════ -->
+  <!--  FOOTER                                -->
+  <!-- ══════════════════════════════════════ -->
+  <footer role="contentinfo">
+    <div class="footer-top">
+
+      <div>
+        <span class="footer-wordmark">Love, Imaan Selene</span>
+        <p class="footer-tagline">
+          A love letter to your undefined, miraculous self. You are here for a reason — and it's worth every roll of the dice.
+        </p>
+      </div>
+
+      <div>
+        <p class="footer-nav-heading">Explore</p>
+        <ul class="footer-nav-list">
+          <li><a href="./coaching.html">Life Coaching</a></li>
+          <li><a href="./podcast.html">Podcast</a></li>
+          <li><a href="./travel.html">Travel Series</a></li>
+          <li><a href="./newsletter.html">Newsletter</a></li>
+          <li><a href="./about.html">About Imaan</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer-nav-heading">Connect</p>
+        <ul class="footer-nav-list">
+          <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#" target="_blank" rel="noopener">Spotify</a></li>
+          <li><a href="#" target="_blank" rel="noopener">Apple Podcasts</a></li>
+          <li><a href="#" target="_blank" rel="noopener">YouTube</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Love, Imaan Selene. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="#" target="_blank" rel="noopener">Instagram</a>
+        <a href="#" target="_blank" rel="noopener">Spotify</a>
+        <a href="#" target="_blank" rel="noopener">YouTube</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- JS -->
+  <script src="./js/main.js"></script>
+
+</body>
+</html>
