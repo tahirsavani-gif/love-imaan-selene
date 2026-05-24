@@ -6,470 +6,910 @@
   <title>Love, Imaan Selene</title>
   <meta name="description" content="Life coaching, podcast, and travel — a love letter to your undefined, miraculous self." />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&family=Caveat:wght@400;600&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="./css/style.css" />
+<style>
+/* ═══════════════════════════════════════════
+   EDIT YOUR CONTENT IN THE SECTION BELOW
+   Search for "CONTENT TO EDIT" to find it
+═══════════════════════════════════════════ */
+
+:root {
+  --sage: #B8CFB4;
+  --sage-light: #d4e4d1;
+  --sage-dark: #8aaa85;
+  --espresso: #3E2F2B;
+  --espresso-mid: #6b5551;
+  --gold: #E1BA66;
+  --gold-dark: #c9a145;
+  --linen: #F4ECE4;
+  --linen-dark: #e8ddd0;
+  --ink: #2a1f1c;
+  --muted: #7a6965;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-script: 'Caveat', cursive;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--linen);
+  color: var(--espresso);
+  font-family: var(--font-body);
+  font-weight: 300;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 9000;
+}
+
+/* CURSOR */
+.cursor {
+  width: 10px; height: 10px;
+  background: var(--gold); border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: width .25s, height .25s;
+  mix-blend-mode: multiply;
+}
+.cursor-ring {
+  width: 34px; height: 34px;
+  border: 1px solid var(--espresso); border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9998;
+  transform: translate(-50%,-50%);
+  opacity: 0.35;
+}
+.cursor.grow { width: 20px; height: 20px; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  padding: 1.75rem 3.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.5s ease;
+}
+nav.scrolled {
+  background: rgba(244,236,228,0.92);
+  backdrop-filter: blur(16px);
+  padding: 1rem 3.5rem;
+  border-bottom: 1px solid rgba(184,207,180,0.35);
+}
+.nav-wordmark {
+  font-family: var(--font-script); font-size: 1.65rem;
+  color: var(--espresso); text-decoration: none;
+  transition: color 0.3s;
+}
+.nav-wordmark:hover { color: var(--gold-dark); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  font-family: var(--font-body); font-size: 0.7rem; font-weight: 500;
+  letter-spacing: 0.13em; text-transform: uppercase;
+  color: var(--espresso); text-decoration: none;
+  position: relative; padding-bottom: 2px; transition: color 0.3s;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: 0; left: 0;
+  width: 0; height: 1px; background: var(--gold);
+  transition: width 0.35s ease;
+}
+.nav-links a:hover { color: var(--gold-dark); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-toggle {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: none; padding: 4px;
+}
+.nav-toggle span { display: block; width: 24px; height: 1px; background: var(--espresso); }
+
+/* MOBILE NAV */
+.mobile-nav {
+  position: fixed; inset: 0; background: var(--linen);
+  z-index: 800;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 2.5rem;
+  transform: translateX(100%);
+  transition: transform 0.55s cubic-bezier(0.77,0,0.175,1);
+}
+.mobile-nav.open { transform: translateX(0); }
+.mobile-nav a {
+  font-family: var(--font-display); font-size: 2.4rem; font-weight: 300;
+  color: var(--espresso); text-decoration: none; transition: color 0.3s;
+}
+.mobile-nav a:hover { color: var(--gold-dark); }
+.mobile-nav-close {
+  position: absolute; top: 2rem; right: 2.5rem;
+  background: none; border: none;
+  font-family: var(--font-display); font-size: 2rem;
+  color: var(--espresso); cursor: none;
+}
+
+/* BUTTONS */
+.btn {
+  font-family: var(--font-body); font-size: 0.7rem; font-weight: 500;
+  letter-spacing: 0.11em; text-transform: uppercase; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  transition: all 0.3s ease; cursor: none; border: none;
+}
+.btn-dark { background: var(--espresso); color: var(--linen); padding: 0.9rem 2.2rem; }
+.btn-dark:hover { background: var(--ink); transform: translateY(-2px); }
+.btn-outline { color: var(--espresso); padding: 0.85rem 0; border-bottom: 1px solid var(--espresso); }
+.btn-outline:hover { color: var(--gold-dark); border-color: var(--gold-dark); }
+.btn-gold { background: var(--gold); color: var(--espresso); padding: 0.9rem 2.2rem; }
+.btn-gold:hover { background: var(--gold-dark); transform: translateY(-2px); }
+.btn-ghost-light { color: rgba(244,236,228,0.75); padding: 0.85rem 0; border-bottom: 1px solid rgba(244,236,228,0.3); }
+.btn-ghost-light:hover { color: var(--gold); border-color: var(--gold); }
+
+/* ANIMATIONS */
+@keyframes fadeUp   { from{opacity:0;transform:translateY(24px);} to{opacity:1;transform:translateY(0);} }
+@keyframes fadeIn   { from{opacity:0;} to{opacity:1;} }
+@keyframes slowSpin { to{transform:translate(-50%,-50%) rotate(360deg);} }
+@keyframes slowSpinR{ to{transform:translate(-50%,-50%) rotate(-360deg);} }
+@keyframes ticker   { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
+@keyframes float    { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+@keyframes inkDraw  { from{stroke-dashoffset:820;} to{stroke-dashoffset:0;} }
+@keyframes inkDraw2 { from{stroke-dashoffset:700;} to{stroke-dashoffset:0;} }
+
+/* SCROLL REVEAL */
+.reveal, .reveal-left, .reveal-right {
+  opacity: 0; transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.reveal       { transform: translateY(28px); }
+.reveal-left  { transform: translateX(-30px); }
+.reveal-right { transform: translateX(30px); }
+.reveal.visible, .reveal-left.visible, .reveal-right.visible {
+  opacity: 1; transform: none;
+}
+.d1 { transition-delay: 0.12s; }
+.d2 { transition-delay: 0.24s; }
+.d3 { transition-delay: 0.36s; }
+.d4 { transition-delay: 0.48s; }
+
+/* WATERCOLOUR BLOB */
+.blob {
+  position: absolute; pointer-events: none;
+  border-radius: 60% 40% 70% 30% / 50% 60% 40% 70%;
+  filter: blur(55px); opacity: 0.13;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh; position: relative;
+  overflow: hidden; display: flex; align-items: center;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  opacity: 0; animation: fadeIn 1.4s ease 0.2s forwards;
+}
+.hero-bg img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.75) brightness(0.9); }
+.hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(115deg, rgba(244,236,228,0.94) 0%, rgba(244,236,228,0.75) 45%, rgba(244,236,228,0.2) 100%);
+}
+.hero-content { position: relative; z-index: 10; padding: 10rem 5rem 6rem; max-width: 680px; }
+.hero-eyebrow {
+  font-family: var(--font-script); font-size: 1.15rem; color: var(--gold-dark);
+  display: block; margin-bottom: 1.5rem;
+  opacity: 0; animation: fadeUp 0.9s ease 0.5s forwards;
+}
+.hero-headline {
+  font-family: var(--font-display);
+  font-size: clamp(3.8rem, 7vw, 6.5rem);
+  font-weight: 300; line-height: 1.0; color: var(--espresso);
+  opacity: 0; animation: fadeUp 0.9s ease 0.7s forwards;
+}
+.hero-headline em { font-style: italic; color: var(--sage-dark); display: block; }
+.hero-sub {
+  font-family: var(--font-display); font-size: 1.2rem;
+  font-weight: 300; font-style: italic; color: var(--muted);
+  line-height: 1.7; max-width: 420px; margin-top: 1.75rem;
+  opacity: 0; animation: fadeUp 0.9s ease 0.9s forwards;
+}
+.hero-actions {
+  display: flex; gap: 1.5rem; align-items: center; margin-top: 2.75rem;
+  opacity: 0; animation: fadeUp 0.9s ease 1.1s forwards;
+}
+.hero-tags {
+  display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 2.5rem;
+  opacity: 0; animation: fadeUp 0.9s ease 1.3s forwards;
+}
+.hero-tag {
+  font-family: var(--font-body); font-size: 0.68rem; font-weight: 500;
+  letter-spacing: 0.11em; text-transform: uppercase; color: var(--muted);
+  border: 1px solid rgba(184,207,180,0.7); padding: 0.35rem 0.9rem;
+}
+.hero-ink {
+  position: absolute; right: 26%; top: 12%; width: 300px;
+  opacity: 0; animation: fadeIn 1s ease 1.6s forwards;
+  pointer-events: none; z-index: 5;
+}
+.hero-polaroid {
+  position: absolute; right: 5%; bottom: 8%; width: 210px;
+  background: white; padding: 10px 10px 36px;
+  box-shadow: 0 20px 60px rgba(62,47,43,0.15);
+  transform: rotate(3.5deg);
+  opacity: 0; animation: fadeIn 1s ease 1.4s forwards; z-index: 10;
+}
+.hero-polaroid img { width: 100%; height: 170px; object-fit: cover; display: block; }
+.hero-polaroid span {
+  display: block; text-align: center; margin-top: 8px;
+  font-family: var(--font-script); font-size: 1rem; color: var(--muted);
+}
+
+/* ── TICKER ── */
+.ticker-wrap {
+  background: var(--sage-light); padding: 1rem 0; overflow: hidden;
+  border-top: 1px solid rgba(184,207,180,0.5);
+  border-bottom: 1px solid rgba(184,207,180,0.5);
+}
+.ticker-inner {
+  display: flex; gap: 3rem; white-space: nowrap;
+  animation: ticker 26s linear infinite;
+}
+.ticker-phrase { font-family: var(--font-display); font-style: italic; font-size: 0.95rem; color: var(--espresso-mid); }
+.ticker-dot { color: var(--gold-dark); }
+
+/* ── COACHING ── */
+.coaching-section {
+  padding: 8rem 5rem; background: var(--espresso);
+  position: relative; overflow: hidden;
+}
+.coaching-num {
+  font-family: var(--font-display); font-style: italic; font-weight: 300;
+  font-size: clamp(12rem, 22vw, 20rem); color: rgba(184,207,180,0.07);
+  position: absolute; right: -2rem; top: -3rem;
+  line-height: 1; pointer-events: none; user-select: none;
+}
+.coaching-content { position: relative; z-index: 2; max-width: 580px; }
+.coaching-label {
+  font-family: var(--font-body); font-size: 0.68rem; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--sage); margin-bottom: 1.25rem; display: block;
+}
+.coaching-h {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 300; line-height: 1.1; color: var(--linen);
+}
+.coaching-h em { font-style: italic; color: var(--gold); }
+.coaching-body {
+  font-family: var(--font-display); font-style: italic; font-size: 1.1rem;
+  color: rgba(244,236,228,0.6); line-height: 1.85;
+  margin-top: 1.5rem; max-width: 460px;
+}
+.coaching-actions { display: flex; gap: 1.5rem; margin-top: 2.5rem; align-items: center; flex-wrap: wrap; }
+
+/* ── PHILOSOPHY ── */
+.philosophy-section {
+  padding: 10rem 5rem; position: relative; overflow: hidden; text-align: center;
+}
+.phil-open {
+  font-family: var(--font-display); font-size: 14rem; line-height: 0.5;
+  color: var(--sage-light); display: block; margin-bottom: -2rem;
+  position: relative; z-index: 1;
+}
+.phil-quote {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.5vw, 4rem);
+  font-weight: 300; font-style: italic;
+  line-height: 1.35; color: var(--espresso);
+  max-width: 780px; margin: 0 auto;
+  position: relative; z-index: 2;
+}
+.phil-quote em { color: var(--sage-dark); }
+.phil-attr {
+  font-family: var(--font-script); font-size: 1.3rem; color: var(--muted);
+  display: block; margin-top: 2rem; position: relative; z-index: 2;
+}
+
+/* ── UNDEFINED ── */
+.undef-section { padding: 8rem 5rem; position: relative; overflow: hidden; }
+.undef-giant {
+  font-family: var(--font-display); font-size: clamp(6rem, 14vw, 13rem);
+  font-weight: 300; font-style: italic; color: var(--sage-light);
+  line-height: 0.85; margin-bottom: -2rem;
+  position: relative; z-index: 1; user-select: none;
+}
+.undef-grid {
+  position: relative; z-index: 2;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 6rem; align-items: center; margin-top: 1rem;
+}
+.eyebrow-script { font-family: var(--font-script); font-size: 1.1rem; color: var(--gold-dark); display: block; margin-bottom: 1rem; }
+.section-h {
+  font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 300; line-height: 1.15; color: var(--espresso);
+}
+.section-h em { font-style: italic; color: var(--sage-dark); }
+.section-body { font-size: 0.95rem; color: var(--muted); line-height: 1.95; margin-top: 1.25rem; max-width: 400px; }
+.section-body em { font-style: italic; color: var(--espresso); }
+.undef-visual { position: relative; height: 420px; }
+.undef-circle {
+  position: absolute; border-radius: 50%;
+  top: 50%; left: 50%;
+}
+.undef-centre {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%); text-align: center;
+}
+.undef-word {
+  position: absolute;
+  font-family: var(--font-display); font-style: italic; font-size: 0.8rem; color: var(--muted);
+}
+
+/* ── ABOUT ── */
+.about-section {
+  padding: 8rem 5rem; background: var(--sage-light);
+  position: relative; overflow: hidden;
+}
+.about-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 7rem; align-items: center; }
+.about-img-col { position: relative; }
+.about-circle {
+  width: 360px; height: 360px; border-radius: 50%; overflow: hidden;
+  border: 8px solid white; box-shadow: 0 30px 80px rgba(62,47,43,0.12);
+  position: relative; z-index: 2; margin: 0 auto;
+}
+.about-circle img { width: 100%; height: 100%; object-fit: cover; }
+.about-ring {
+  position: absolute; top: 50%; left: 50%;
+  width: 410px; height: 410px; border-radius: 50%;
+  border: 1px dashed var(--sage-dark);
+  transform: translate(-50%,-50%);
+  animation: slowSpin 25s linear infinite; opacity: 0.35;
+}
+.about-polaroid {
+  position: absolute; bottom: -20px; right: -10px;
+  width: 140px; background: white;
+  padding: 7px 7px 28px;
+  box-shadow: 0 12px 40px rgba(62,47,43,0.12);
+  transform: rotate(-4deg); z-index: 3;
+}
+.about-polaroid img { width: 100%; height: 110px; object-fit: cover; display: block; }
+.about-polaroid span {
+  display: block; text-align: center; margin-top: 5px;
+  font-family: var(--font-script); font-size: 0.85rem; color: var(--muted);
+}
+.about-letter-open { font-family: var(--font-script); font-size: 1.4rem; color: var(--gold-dark); display: block; margin-bottom: 1rem; }
+.about-h { font-family: var(--font-display); font-size: clamp(2.2rem, 3.5vw, 3rem); font-weight: 300; color: var(--espresso); line-height: 1.15; }
+.about-h em { font-style: italic; color: var(--sage-dark); }
+.about-body { font-size: 0.95rem; color: var(--espresso-mid); line-height: 1.95; margin-top: 1rem; max-width: 420px; }
+.about-body em { font-style: italic; }
+.about-sig { font-family: var(--font-script); font-size: 2.2rem; color: var(--espresso); margin-top: 1.5rem; display: block; }
+
+/* ── TRAVEL ── */
+.travel-section {
+  padding: 9rem 5rem; background: var(--espresso);
+  position: relative; overflow: hidden;
+}
+.travel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; position: relative; z-index: 2; }
+.travel-label { font-family: var(--font-script); font-size: 1.1rem; color: var(--gold); display: block; margin-bottom: 1rem; }
+.travel-h { font-family: var(--font-display); font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.1; color: var(--linen); }
+.travel-h em { font-style: italic; color: var(--sage); }
+.travel-body { font-family: var(--font-display); font-style: italic; font-size: 1.05rem; color: rgba(244,236,228,0.6); line-height: 1.8; margin-top: 1.25rem; max-width: 380px; }
+.city-pill {
+  font-family: var(--font-body); font-size: 0.72rem; font-weight: 400;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(244,236,228,0.6); border: 1px solid rgba(184,207,180,0.25);
+  padding: 0.55rem 1.1rem; cursor: none;
+  transition: all 0.35s ease; display: inline-block; margin: 0.3rem;
+}
+.city-pill:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+.travel-quote-block { margin-top: 2rem; padding: 1.75rem 2rem; border-left: 2px solid var(--gold); }
+.travel-quote-block p { font-family: var(--font-display); font-style: italic; font-size: 1.05rem; color: rgba(244,236,228,0.8); line-height: 1.7; }
+.travel-quote-block cite { font-family: var(--font-script); font-size: 0.95rem; color: var(--sage); display: block; margin-top: 0.75rem; font-style: normal; }
+.travel-polaroids { position: relative; height: 340px; margin-top: 4rem; z-index: 2; }
+.t-pol { position: absolute; background: white; padding: 8px 8px 30px; box-shadow: 0 16px 50px rgba(0,0,0,0.25); }
+.t-pol img { width: 100%; object-fit: cover; display: block; }
+.t-pol span { display: block; text-align: center; margin-top: 6px; font-family: var(--font-script); font-size: 0.9rem; color: var(--muted); }
+
+/* ── PODCAST ── */
+.podcast-section { padding: 8rem 5rem; position: relative; overflow: hidden; }
+.podcast-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem; align-items: center; }
+.podcast-cover {
+  width: 100%; max-width: 360px; aspect-ratio: 1;
+  background: var(--espresso);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  box-shadow: 0 30px 80px rgba(62,47,43,0.15);
+}
+.podcast-cover-inner { text-align: center; padding: 2.5rem; position: relative; z-index: 2; }
+.podcast-cover-title { font-family: var(--font-script); font-size: 2.4rem; color: var(--linen); line-height: 1.2; }
+.podcast-cover-sub { font-family: var(--font-body); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); margin-top: 0.75rem; display: block; }
+.podcast-cover-leaf { position: absolute; opacity: 0.07; bottom: -20px; right: -20px; width: 160px; }
+.platform-pill {
+  font-family: var(--font-body); font-size: 0.65rem; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--espresso-mid); border: 1px solid var(--sage);
+  padding: 0.5rem 1rem; transition: all 0.3s; text-decoration: none; cursor: none; display: inline-block; margin: 0.25rem;
+}
+.platform-pill:hover { background: var(--espresso); color: var(--linen); border-color: var(--espresso); }
+
+/* ── NEWSLETTER ── */
+.newsletter-section {
+  padding: 8rem 5rem; background: white;
+  text-align: center; position: relative; overflow: hidden;
+}
+.envelope { font-size: 3.5rem; display: block; animation: float 4s ease-in-out infinite; margin-bottom: 1.5rem; }
+.newsletter-h { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; color: var(--espresso); }
+.newsletter-h em { font-style: italic; color: var(--sage-dark); }
+.newsletter-body { font-family: var(--font-display); font-style: italic; font-size: 1.1rem; color: var(--muted); line-height: 1.7; max-width: 500px; margin: 1.25rem auto 2.5rem; }
+
+/* ── FOOTER ── */
+footer { background: var(--espresso); padding: 4.5rem 5rem 2.5rem; color: var(--linen); }
+.footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 4rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(184,207,180,0.18); }
+.footer-wordmark { font-family: var(--font-script); font-size: 2.4rem; color: var(--linen); display: block; margin-bottom: 1rem; }
+.footer-tagline { font-family: var(--font-display); font-style: italic; font-size: 0.92rem; color: var(--sage); line-height: 1.75; max-width: 260px; }
+.footer-col-head { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage); margin-bottom: 1.25rem; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+.footer-links a { color: rgba(244,236,228,0.6); text-decoration: none; font-size: 0.88rem; transition: color 0.3s; }
+.footer-links a:hover { color: var(--gold); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; }
+.footer-copy { font-size: 0.72rem; color: rgba(244,236,228,0.35); letter-spacing: 0.05em; }
+.footer-socials { display: flex; gap: 1.5rem; }
+.footer-socials a { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,236,228,0.45); text-decoration: none; transition: color 0.3s; }
+.footer-socials a:hover { color: var(--gold); }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  nav { padding: 1.25rem 1.75rem; }
+  nav.scrolled { padding: 0.9rem 1.75rem; }
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .hero-content { padding: 8rem 2rem 5rem; }
+  .hero-polaroid, .hero-ink { display: none; }
+  .coaching-section, .philosophy-section, .undef-section, .about-section, .travel-section, .podcast-section, .newsletter-section { padding: 5rem 2rem; }
+  .undef-grid, .about-grid, .travel-grid, .podcast-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .undef-visual { height: 300px; }
+  .about-circle { width: 280px; height: 280px; }
+  .about-ring { width: 320px; height: 320px; }
+  .travel-polaroids { display: none; }
+  footer { padding: 3rem 2rem 2rem; }
+  .footer-top { grid-template-columns: 1fr; gap: 2.5rem; }
+  .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+}
+</style>
 </head>
 <body>
 
-  <!-- CURSOR -->
-  <div class="cursor"></div>
-  <div class="cursor-ring"></div>
+<div class="cursor"></div>
+<div class="cursor-ring"></div>
 
-  <!-- MOBILE NAV -->
-  <div class="mobile-nav" role="dialog" aria-label="Navigation menu">
-    <button class="mobile-nav-close" aria-label="Close menu">✕</button>
-    <a href="./index.html">Home</a>
-    <a href="./coaching.html">Coaching</a>
-    <a href="./podcast.html">Podcast</a>
-    <a href="./travel.html">Travel</a>
-    <a href="./newsletter.html">Newsletter</a>
-    <a href="./about.html">About</a>
+<!-- MOBILE NAV -->
+<div class="mobile-nav">
+  <button class="mobile-nav-close">✕</button>
+  <a href="./index.html">Home</a>
+  <a href="./coaching.html">Coaching</a>
+  <a href="./podcast.html">Podcast</a>
+  <a href="./travel.html">Travel</a>
+  <a href="./newsletter.html">Newsletter</a>
+  <a href="./about.html">About</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="./index.html" class="nav-wordmark">Love, Imaan Selene</a>
+  <ul class="nav-links">
+    <li><a href="./coaching.html">Coaching</a></li>
+    <li><a href="./podcast.html">Podcast</a></li>
+    <li><a href="./travel.html">Travel</a></li>
+    <li><a href="./newsletter.html">Newsletter</a></li>
+    <li><a href="./about.html">About</a></li>
+  </ul>
+  <button class="nav-toggle" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main>
+
+<!-- ═══════════════════════════════════════════════════════
+     HERO
+     TO CHANGE PHOTO: replace the src URL below
+     TO CHANGE TEXT: edit the text inside the tags
+════════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1400&q=80" alt="Imaan Selene" />
   </div>
 
-  <!-- NAV -->
-  <nav aria-label="Main navigation">
-    <a href="./index.html" class="nav-wordmark" data-content="wordmark">Love, Imaan Selene</a>
-    <ul class="nav-links" role="list">
-      <li><a href="./coaching.html">Coaching</a></li>
-      <li><a href="./podcast.html">Podcast</a></li>
-      <li><a href="./travel.html">Travel</a></li>
-      <li><a href="./newsletter.html">Newsletter</a></li>
-      <li><a href="./about.html">About</a></li>
-    </ul>
-    <button class="nav-toggle" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
+  <svg class="hero-ink" viewBox="0 0 300 300" fill="none" aria-hidden="true">
+    <circle cx="150" cy="150" r="138" stroke="#B8CFB4" stroke-width="1"
+      stroke-dasharray="870" stroke-dashoffset="870"
+      style="animation:inkDraw 2.5s ease 1.6s forwards;"/>
+    <circle cx="150" cy="150" r="115" stroke="#E1BA66" stroke-width="0.5" opacity="0.5"
+      stroke-dasharray="725" stroke-dashoffset="725"
+      style="animation:inkDraw2 2.5s ease 1.9s forwards;"/>
+  </svg>
 
-  <main>
-
-    <!-- ═══════════════════════════════════════════ -->
-    <!--  HERO                                       -->
-    <!-- ═══════════════════════════════════════════ -->
-    <section class="hero" aria-label="Welcome">
-
-      <!-- Full bleed image with linen wash -->
-      <div class="hero-bg">
-        <img data-img="hero" src="" alt="Imaan Selene" />
-      </div>
-
-      <!-- Ink-drawn circle decoration -->
-      <svg class="hero-ink-circle" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="140" cy="140" r="130"
-          stroke="#B8CFB4" stroke-width="1"
-          stroke-dasharray="820"
-          stroke-dashoffset="820"
-          style="animation: inkDraw 2.5s ease 1.5s forwards; stroke-dashoffset:820;"
-        />
-        <circle cx="140" cy="140" r="110"
-          stroke="#E1BA66" stroke-width="0.5" opacity="0.5"
-          stroke-dasharray="700"
-          stroke-dashoffset="700"
-          style="animation: inkDraw 2.5s ease 1.8s forwards;"
-        />
-      </svg>
-
-      <!-- Content -->
-      <div class="hero-content">
-        <span class="hero-eyebrow">a love letter to your undefined self</span>
-
-        <h1 class="hero-headline">
-          There's a reason<br>
-          <em>you're here.</em>
-        </h1>
-
-        <p class="hero-sub" data-content="heroSub">
-          Your soul is undefined — and that is the most beautiful thing about you. Roll the dice.
-        </p>
-
-        <div class="hero-actions">
-          <a href="./coaching.html" class="btn btn-dark">Work with Imaan</a>
-          <a href="./about.html" class="btn btn-outline">
-            Read her story &nbsp;→
-          </a>
-        </div>
-
-        <!-- Floating identity tags -->
-        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:2.5rem;
-                    opacity:0;animation:fadeUp 0.9s ease 1.2s forwards;">
-          <span style="font-family:var(--font-body);font-size:0.68rem;font-weight:500;
-                       letter-spacing:0.11em;text-transform:uppercase;color:var(--muted);
-                       border:1px solid rgba(184,207,180,0.6);padding:0.35rem 0.9rem;">
-            Life Coach
-          </span>
-          <span style="font-family:var(--font-body);font-size:0.68rem;font-weight:500;
-                       letter-spacing:0.11em;text-transform:uppercase;color:var(--muted);
-                       border:1px solid rgba(184,207,180,0.6);padding:0.35rem 0.9rem;">
-            Podcaster
-          </span>
-          <span style="font-family:var(--font-body);font-size:0.68rem;font-weight:500;
-                       letter-spacing:0.11em;text-transform:uppercase;color:var(--muted);
-                       border:1px solid rgba(184,207,180,0.6);padding:0.35rem 0.9rem;">
-            Explorer
-          </span>
-        </div>
-      </div>
-
-      <!-- Floating polaroid -->
-      <div class="hero-polaroid">
-        <img data-img="polaroid1" src="" alt="A moment from Imaan's travels" />
-        <span>somewhere beautiful</span>
-      </div>
-
-    </section>
-
-
-    <!-- ═══════════════════════════════════════════ -->
-    <!--  TICKER STRIP                               -->
-    <!-- ═══════════════════════════════════════════ -->
-    <div class="ticker-wrap" aria-hidden="true">
-      <div class="ticker-inner">
-        <!-- Filled by main.js from content.js -->
-      </div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">a love letter to your undefined self</span>
+    <h1 class="hero-headline">
+      There's a reason<br>
+      <em>you're here.</em>
+    </h1>
+    <p class="hero-sub">
+      Your soul is undefined — and that is the most beautiful thing about you. Roll the dice.
+    </p>
+    <div class="hero-actions">
+      <a href="./coaching.html" class="btn btn-dark">Work with Imaan</a>
+      <a href="./about.html" class="btn btn-outline">Read her story &nbsp;→</a>
     </div>
+    <div class="hero-tags">
+      <span class="hero-tag">Life Coach</span>
+      <span class="hero-tag">Podcaster</span>
+      <span class="hero-tag">Explorer</span>
+    </div>
+  </div>
+
+  <!-- Floating polaroid — TO CHANGE PHOTO: replace src URL -->
+  <div class="hero-polaroid">
+    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80" alt="somewhere beautiful" />
+    <span>somewhere beautiful</span>
+  </div>
+</section>
 
 
-    <!-- ═══════════════════════════════════════════ -->
-    <!--  COACHING — DARK FULL BLEED                 -->
-    <!-- ═══════════════════════════════════════════ -->
-    <section class="coaching-flow" aria-label="Life Coaching">
-
-      <div class="blob" style="width:500px;height:500px;background:var(--sage-dark);top:-100px;right:-80px;"></div>
-      <div class="coaching-giant-num" aria-hidden="true">01</div>
-
-      <div class="coaching-content">
-        <span class="coaching-label reveal">Life Coaching</span>
-
-        <h2 class="coaching-headline reveal delay-1">
-          One conversation<br>can <em>change</em><br>everything.
-        </h2>
-
-        <p class="coaching-body reveal delay-2">
-          Imaan works with you one-on-one to help you move from uncertainty to clarity — to find the thread of your own life and follow it, bravely and without apology.
-        </p>
-
-        <div class="coaching-actions reveal delay-3">
-          <a href="./coaching.html" class="btn btn-gold">Book a free consultation</a>
-          <a href="./coaching.html" class="btn btn-ghost-light">Book your first session &nbsp;→</a>
-        </div>
-      </div>
-
-    </section>
+<!-- ═══════════════════════════════════════════════════════
+     TICKER STRIP — TO EDIT: change the phrases below
+════════════════════════════════════════════════════════ -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-inner">
+    <span class="ticker-phrase">your value is inherent</span><span class="ticker-dot">&nbsp;✦&nbsp;</span>
+    <span class="ticker-phrase">undefined &amp; becoming</span><span class="ticker-dot">&nbsp;✦&nbsp;</span>
+    <span class="ticker-phrase">blessed to be here</span><span class="ticker-dot">&nbsp;✦&nbsp;</span>
+    <span class="ticker-phrase">life is miraculous</span><span class="ticker-dot">&nbsp;✦&nbsp;</span>
+    <span class="ticker-phrase">roll the dice</span><span class="ticker-dot">&nbsp;✦&nbsp;</span>
+    <span class="ticker-phrase">we're floating on a giant rock</span><span class="ticker-dot">&nbsp;✦&nbsp;</span>
+    <span class="ticker-phrase">you are not what happened to you</span><span class="ticker-dot">&nbsp;✦&nbsp;</span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-phrase">your value is inherent</span><span class="ticker-dot">&nbsp;✦&nbsp;</span>
+    <span class="ticker-phrase">undefined &amp; becoming</span><span class="ticker-dot">&nbsp;✦&nbsp;</span>
+    <span class="ticker-phrase">blessed to be here</span><span class="ticker-dot">&nbsp;✦&nbsp;</span>
+    <span class="ticker-phrase">life is miraculous</span><span class="ticker-dot">&nbsp;✦&nbsp;</span>
+    <span class="ticker-phrase">roll the dice</span><span class="ticker-dot">&nbsp;✦&nbsp;</span>
+    <span class="ticker-phrase">we're floating on a giant rock</span><span class="ticker-dot">&nbsp;✦&nbsp;</span>
+    <span class="ticker-phrase">you are not what happened to you</span><span class="ticker-dot">&nbsp;✦&nbsp;</span>
+  </div>
+</div>
 
 
-    <!-- ═══════════════════════════════════════════ -->
-    <!--  PHILOSOPHY — BIG OPEN QUOTE               -->
-    <!-- ═══════════════════════════════════════════ -->
-    <section class="philosophy-section" aria-label="Imaan's philosophy">
-
-      <!-- Watercolour blobs bleeding across the section -->
-      <div class="blob" style="width:600px;height:600px;background:var(--sage);top:-150px;left:-150px;"></div>
-      <div class="blob" style="width:400px;height:400px;background:var(--gold);bottom:-100px;right:-80px;opacity:0.1;"></div>
-
-      <span class="phil-open-quote reveal" aria-hidden="true">"</span>
-
-      <blockquote class="phil-giant-quote reveal delay-1" data-content="quote">
-        Your soul is undefined. The events of your life
-        <em>do not define you.</em>
-      </blockquote>
-
-      <span class="phil-attr reveal delay-2">— the heart of this space</span>
-
-    </section>
-
-
-    <!-- ═══════════════════════════════════════════ -->
-    <!--  UNDEFINED — BIG TYPE + VISUAL             -->
-    <!-- ═══════════════════════════════════════════ -->
-    <section class="undefined-section" aria-label="The Undefined philosophy">
-
-      <!-- Giant italic watermark word -->
-      <div class="undef-giant reveal-left" aria-hidden="true">Undefined.</div>
-
-      <div class="undef-content">
-
-        <div>
-          <span class="eyebrow-script reveal">your soul is</span>
-          <h2 class="section-headline reveal delay-1">
-            You are not<br>what happened <em>to you.</em>
-          </h2>
-          <p class="undef-body reveal delay-2">
-            Imaan's biggest belief is simple and radical at once — your soul arrives in this world <em>undefined.</em> Open. Ready to be shaped by you, not by circumstance. Not by loss, not by what others decided you were.
-            <br><br>
-            You are the author of this story. The pen is already in your hand.
-          </p>
-          <div style="display:flex;gap:1.25rem;margin-top:2rem;align-items:center;" class="reveal delay-3">
-            <a href="./about.html" class="btn btn-dark">Meet Imaan</a>
-            <a href="./coaching.html" class="btn btn-outline">Begin the work &nbsp;→</a>
-          </div>
-        </div>
-
-        <!-- Concentric animated circles -->
-        <div class="undef-visual reveal-right delay-2" aria-hidden="true">
-          <div class="undef-circle" style="width:340px;height:340px;border:1px solid var(--sage-light);transform:translate(-50%,-50%);animation:slowSpin 35s linear infinite;"></div>
-          <div class="undef-circle" style="width:260px;height:260px;border:1px solid var(--sage);transform:translate(-50%,-50%);animation:slowSpinR 25s linear infinite;"></div>
-          <div class="undef-circle" style="width:180px;height:180px;border:1px dashed var(--gold);transform:translate(-50%,-50%);animation:slowSpin 18s linear infinite;"></div>
-          <div class="undef-centre">
-            <span style="font-family:var(--font-display);font-size:0.85rem;font-style:italic;color:var(--muted);display:block;letter-spacing:0.06em;">you are</span>
-            <span style="font-family:var(--font-script);font-size:2.6rem;color:var(--espresso);">undefined</span>
-          </div>
-          <!-- Floating affirmations -->
-          <span style="position:absolute;top:7%;left:56%;font-family:var(--font-display);font-style:italic;font-size:0.8rem;color:var(--muted);">worthy</span>
-          <span style="position:absolute;bottom:10%;left:8%;font-family:var(--font-display);font-style:italic;font-size:0.8rem;color:var(--muted);">becoming</span>
-          <span style="position:absolute;top:48%;right:2%;font-family:var(--font-display);font-style:italic;font-size:0.8rem;color:var(--muted);">free</span>
-          <span style="position:absolute;top:78%;left:48%;font-family:var(--font-display);font-style:italic;font-size:0.8rem;color:var(--muted);">miraculous</span>
-        </div>
-
-      </div>
-    </section>
+<!-- ═══════════════════════════════════════════════════════
+     COACHING SECTION — TO EDIT: change text below
+════════════════════════════════════════════════════════ -->
+<section class="coaching-section">
+  <div class="blob" style="width:500px;height:500px;background:var(--sage-dark);top:-100px;right:-80px;"></div>
+  <div class="coaching-num" aria-hidden="true">01</div>
+  <div class="coaching-content">
+    <span class="coaching-label reveal">Life Coaching</span>
+    <h2 class="coaching-h reveal d1">
+      One conversation<br>can <em>change</em><br>everything.
+    </h2>
+    <p class="coaching-body reveal d2">
+      Imaan works with you one-on-one to help you move from uncertainty to clarity — to find the thread of your own life and follow it, bravely and without apology.
+    </p>
+    <div class="coaching-actions reveal d3">
+      <a href="./coaching.html" class="btn btn-gold">Book a free consultation</a>
+      <a href="./coaching.html" class="btn btn-ghost-light">Book your first session &nbsp;→</a>
+    </div>
+  </div>
+</section>
 
 
-    <!-- ═══════════════════════════════════════════ -->
-    <!--  ABOUT TEASER                              -->
-    <!-- ═══════════════════════════════════════════ -->
-    <section class="about-section" aria-label="About Imaan Selene">
-
-      <div class="blob" style="width:450px;height:450px;background:var(--sage-dark);top:-60px;right:60px;opacity:0.12;"></div>
-
-      <div class="about-inner">
-
-        <!-- Left: circular portrait -->
-        <div class="about-img-col reveal-left">
-          <div class="about-ring"></div>
-          <div class="about-circle">
-            <img data-img="about" src="" alt="Imaan Selene" />
-          </div>
-          <!-- Floating polaroid -->
-          <div class="about-polaroid-float">
-            <img data-img="polaroid2" src="" alt="Imaan travelling" />
-            <span>on the road</span>
-          </div>
-        </div>
-
-        <!-- Right: letter content -->
-        <div class="reveal-right delay-1">
-          <span class="about-letter-open" data-content="aboutOpener">Dear curious soul,</span>
-
-          <h2 class="about-headline">
-            Hi, I'm <em>Imaan.</em>
-          </h2>
-
-          <p class="about-body" style="margin-top:1.25rem;">
-            I'm a life coach, wanderer, and letter-writer who believes deeply that you are not your story — you are the one telling it. This space is my love letter to the world.
-          </p>
-          <p class="about-body">
-            To the people still figuring it out. To the ones who feel a pull toward something more. To anyone who has ever whispered: <em>there has to be more to this.</em> There is.
-          </p>
-
-          <a href="./about.html" class="btn btn-dark" style="margin-top:1.75rem;display:inline-flex;">
-            Read the full story
-          </a>
-
-          <span class="about-sig" data-content="aboutSignature">Love, Imaan Selene</span>
-        </div>
-
-      </div>
-    </section>
+<!-- ═══════════════════════════════════════════════════════
+     PHILOSOPHY QUOTE — TO EDIT: change the quote text
+════════════════════════════════════════════════════════ -->
+<section class="philosophy-section">
+  <div class="blob" style="width:600px;height:600px;background:var(--sage);top:-150px;left:-150px;"></div>
+  <div class="blob" style="width:400px;height:400px;background:var(--gold);bottom:-100px;right:-80px;opacity:0.09;"></div>
+  <span class="phil-open reveal" aria-hidden="true">"</span>
+  <blockquote class="phil-quote reveal d1">
+    Your soul is undefined. The events of your life
+    <em>do not define you.</em>
+  </blockquote>
+  <span class="phil-attr reveal d2">— the heart of this space</span>
+</section>
 
 
-    <!-- ═══════════════════════════════════════════ -->
-    <!--  TRAVEL TEASER                             -->
-    <!-- ═══════════════════════════════════════════ -->
-    <section class="travel-section" aria-label="The Travel Series">
-
-      <!-- Botanical SVG watercolour -->
-      <svg style="position:absolute;top:0;right:0;width:380px;opacity:0.05;pointer-events:none;" viewBox="0 0 300 400" fill="none" aria-hidden="true">
-        <path d="M150 10 C80 60, 20 160, 30 280 C40 360, 150 390, 150 390 C150 390, 260 360, 270 280 C280 160, 220 60, 150 10Z" fill="white"/>
-        <path d="M150 80 L150 390" stroke="white" stroke-width="2" opacity="0.3"/>
-        <path d="M150 120 C110 160, 50 200, 40 260" stroke="white" stroke-width="1" opacity="0.25" fill="none"/>
-        <path d="M150 120 C190 160, 245 200, 255 260" stroke="white" stroke-width="1" opacity="0.25" fill="none"/>
-      </svg>
-
-      <div class="travel-top">
-
-        <div>
-          <span class="travel-label reveal">letters from the road</span>
-          <h2 class="travel-headline reveal delay-1">
-            The world is<br><em>waiting.</em>
-          </h2>
-          <p class="travel-body reveal delay-2">
-            From Zambia's waterfalls to the cobblestones of Lisbon — Imaan travels and sends back dispatches. Journal entries, photographs, the quiet revelations that only come when you're somewhere new.
-          </p>
-          <div style="margin-top:2rem;" class="reveal delay-3">
-            <a href="./travel.html" class="btn btn-gold">
-              Explore the series &nbsp;→
-            </a>
-          </div>
-        </div>
-
-        <div class="reveal-right delay-1">
-          <p style="font-family:var(--font-body);font-size:0.65rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--sage);margin-bottom:1rem;">Cities visited</p>
-
-          <!-- Cities filled by main.js -->
-          <div class="travel-cities-grid"></div>
-
-          <div class="travel-road-quote" style="margin-top:2rem;">
-            <p data-content="travelQuote">Every city teaches you something you didn't know you needed to learn.</p>
-            <cite>— from the road</cite>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Three polaroids scattered at the bottom -->
-      <div class="travel-polaroids reveal delay-2" aria-hidden="true">
-        <div class="t-polaroid" style="width:200px;left:5%;top:0;transform:rotate(-3deg);">
-          <img data-img="polaroid1" src="" alt="" style="height:160px;" />
-          <span>Lusaka</span>
-        </div>
-        <div class="t-polaroid" style="width:220px;left:30%;top:20px;transform:rotate(2deg);">
-          <img data-img="polaroid2" src="" alt="" style="height:175px;" />
-          <span>Lisbon</span>
-        </div>
-        <div class="t-polaroid" style="width:190px;left:58%;top:-10px;transform:rotate(-1.5deg);">
-          <img data-img="polaroid3" src="" alt="" style="height:155px;" />
-          <span>Miami</span>
-        </div>
-      </div>
-
-    </section>
-
-
-    <!-- ═══════════════════════════════════════════ -->
-    <!--  PODCAST TEASER                            -->
-    <!-- ═══════════════════════════════════════════ -->
-    <section class="podcast-section" aria-label="The Podcast">
-
-      <div class="blob" style="width:500px;height:500px;background:var(--sage);top:-80px;right:-100px;opacity:0.12;"></div>
-
-      <div class="podcast-inner">
-
-        <!-- Podcast cover art (styled) -->
-        <div class="reveal-left">
-          <div class="podcast-cover">
-            <!-- Botanical leaf watermark -->
-            <svg class="podcast-cover-leaf" viewBox="0 0 200 280" fill="none" aria-hidden="true">
-              <path d="M100 10 C60 40, 20 100, 30 180 C40 240, 100 270, 100 270 C100 270, 160 240, 170 180 C180 100, 140 40, 100 10Z" fill="white"/>
-            </svg>
-            <div class="podcast-cover-inner">
-              <div style="width:60px;height:1px;background:var(--gold);margin:0 auto 1.5rem;"></div>
-              <h3 class="podcast-cover-title">Love,<br>Imaan Selene</h3>
-              <span class="podcast-cover-sub">The Podcast</span>
-              <div style="width:40px;height:1px;background:var(--sage);margin:1.5rem auto 0;"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Podcast info -->
-        <div class="reveal-right delay-1">
-          <span class="eyebrow-script">the podcast</span>
-          <h2 class="section-headline">
-            Conversations that feel like<br>a <em>letter from a friend.</em>
-          </h2>
-          <p class="section-body">
-            Pull up a chair. Love, Imaan Selene is a podcast about growth, becoming, wandering, and the radical idea that your life is already miraculous — you just have to lean in.
-          </p>
-
-          <!-- Platform badges -->
-          <div class="podcast-platforms">
-            <a href="#" data-link="spotify" class="platform-badge">Spotify</a>
-            <a href="#" data-link="apple" class="platform-badge">Apple Podcasts</a>
-            <a href="#" data-link="youtube" class="platform-badge">YouTube</a>
-          </div>
-
-          <div style="margin-top:2rem;">
-            <a href="./podcast.html" class="btn btn-dark">Listen now &nbsp;→</a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- ═══════════════════════════════════════════ -->
-    <!--  NEWSLETTER TEASER                         -->
-    <!-- ═══════════════════════════════════════════ -->
-    <section class="newsletter-section" aria-label="Newsletter">
-
-      <!-- Botanical decoration -->
-      <svg style="position:absolute;top:2rem;left:3rem;opacity:0.06;width:120px;pointer-events:none;" viewBox="0 0 120 200" fill="none" aria-hidden="true">
-        <path d="M60 10 C30 40, 10 90, 15 150 C20 190, 60 200, 60 200 C60 200, 100 190, 105 150 C110 90, 90 40, 60 10Z" fill="var(--espresso)"/>
-        <path d="M60 40 L60 200" stroke="var(--espresso)" stroke-width="1.5" fill="none"/>
-      </svg>
-      <svg style="position:absolute;bottom:2rem;right:4rem;opacity:0.06;width:90px;transform:rotate(25deg);pointer-events:none;" viewBox="0 0 120 200" fill="none" aria-hidden="true">
-        <path d="M60 10 C30 40, 10 90, 15 150 C20 190, 60 200, 60 200 C60 200, 100 190, 105 150 C110 90, 90 40, 60 10Z" fill="var(--sage-dark)"/>
-      </svg>
-
-      <span class="newsletter-envelope" role="img" aria-label="envelope">✉️</span>
-
-      <span class="eyebrow-script reveal" style="display:block;margin-bottom:0.5rem;">coming soon</span>
-
-      <h2 class="newsletter-headline reveal delay-1">
-        Letters from <em>Imaan</em>
+<!-- ═══════════════════════════════════════════════════════
+     UNDEFINED SECTION — TO EDIT: change text below
+════════════════════════════════════════════════════════ -->
+<section class="undef-section">
+  <div class="undef-giant reveal-left" aria-hidden="true">Undefined.</div>
+  <div class="undef-grid">
+    <div>
+      <span class="eyebrow-script reveal">your soul is</span>
+      <h2 class="section-h reveal d1">
+        You are not<br>what happened <em>to you.</em>
       </h2>
-
-      <p class="newsletter-body reveal delay-2">
-        A personal dispatch — thoughts on growth, travel, becoming, and the beautiful undefined. Arriving in your inbox like a letter from a friend.
+      <p class="section-body reveal d2">
+        Imaan's biggest belief is simple and radical at once — your soul arrives in this world <em>undefined.</em> Open. Ready to be shaped by you, not by circumstance. Not by loss, not by what others decided you were.
+        <br><br>
+        You are the author of this story. The pen is already in your hand.
       </p>
-
-      <a href="./newsletter.html" class="btn btn-dark reveal delay-3">
-        Join the waitlist &nbsp;→
-      </a>
-
-    </section>
-
-  </main>
-
-
-  <!-- ═══════════════════════════════════════════ -->
-  <!--  FOOTER                                     -->
-  <!-- ═══════════════════════════════════════════ -->
-  <footer role="contentinfo">
-    <div class="footer-top">
-
-      <div>
-        <span class="footer-wordmark" data-content="wordmark">Love, Imaan Selene</span>
-        <p class="footer-tagline" data-content="footerTagline">
-          A love letter to your undefined, miraculous self.
-        </p>
-      </div>
-
-      <div>
-        <p class="footer-col-head">Explore</p>
-        <ul class="footer-list">
-          <li><a href="./coaching.html">Life Coaching</a></li>
-          <li><a href="./podcast.html">Podcast</a></li>
-          <li><a href="./travel.html">Travel Series</a></li>
-          <li><a href="./newsletter.html">Newsletter</a></li>
-          <li><a href="./about.html">About Imaan</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <p class="footer-col-head">Connect</p>
-        <ul class="footer-list">
-          <li><a href="#" data-link="instagram">Instagram</a></li>
-          <li><a href="#" data-link="spotify">Spotify</a></li>
-          <li><a href="#" data-link="apple">Apple Podcasts</a></li>
-          <li><a href="#" data-link="youtube">YouTube</a></li>
-        </ul>
-      </div>
-
-    </div>
-
-    <div class="footer-bottom">
-      <p class="footer-copy" data-content="footerCopy">© 2025 Love, Imaan Selene. All rights reserved.</p>
-      <div class="footer-socials">
-        <a href="#" data-link="instagram">Instagram</a>
-        <a href="#" data-link="spotify">Spotify</a>
-        <a href="#" data-link="youtube">YouTube</a>
+      <div style="display:flex;gap:1.25rem;margin-top:2rem;align-items:center;flex-wrap:wrap;" class="reveal d3">
+        <a href="./about.html" class="btn btn-dark">Meet Imaan</a>
+        <a href="./coaching.html" class="btn btn-outline">Begin the work &nbsp;→</a>
       </div>
     </div>
-  </footer>
 
-  <!-- Load content first, then scripts -->
-  <script src="./content.js"></script>
-  <script src="./js/main.js"></script>
+    <!-- Animated circles -->
+    <div class="undef-visual reveal-right d2" aria-hidden="true">
+      <div class="undef-circle" style="width:340px;height:340px;border:1px solid var(--sage-light);transform:translate(-50%,-50%);animation:slowSpin 35s linear infinite;"></div>
+      <div class="undef-circle" style="width:260px;height:260px;border:1px solid var(--sage);transform:translate(-50%,-50%);animation:slowSpinR 25s linear infinite;"></div>
+      <div class="undef-circle" style="width:180px;height:180px;border:1px dashed var(--gold);transform:translate(-50%,-50%);animation:slowSpin 18s linear infinite;"></div>
+      <div class="undef-centre">
+        <span style="font-family:var(--font-display);font-size:0.85rem;font-style:italic;color:var(--muted);display:block;letter-spacing:0.06em;">you are</span>
+        <span style="font-family:var(--font-script);font-size:2.6rem;color:var(--espresso);">undefined</span>
+      </div>
+      <span class="undef-word" style="top:7%;left:56%;">worthy</span>
+      <span class="undef-word" style="bottom:10%;left:8%;">becoming</span>
+      <span class="undef-word" style="top:48%;right:2%;">free</span>
+      <span class="undef-word" style="top:78%;left:46%;">miraculous</span>
+    </div>
+  </div>
+</section>
 
+
+<!-- ═══════════════════════════════════════════════════════
+     ABOUT TEASER
+     TO CHANGE PHOTO: replace the src URLs
+     TO CHANGE TEXT: edit text inside the tags
+════════════════════════════════════════════════════════ -->
+<section class="about-section">
+  <div class="blob" style="width:450px;height:450px;background:var(--sage-dark);top:-60px;right:60px;opacity:0.1;"></div>
+  <div class="about-grid">
+
+    <div class="about-img-col reveal-left">
+      <div class="about-ring"></div>
+      <div class="about-circle">
+        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80" alt="Imaan Selene" />
+      </div>
+      <div class="about-polaroid">
+        <img src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=300&q=80" alt="on the road" />
+        <span>on the road</span>
+      </div>
+    </div>
+
+    <div class="reveal-right d1">
+      <span class="about-letter-open">Dear curious soul,</span>
+      <h2 class="about-h">Hi, I'm <em>Imaan.</em></h2>
+      <p class="about-body" style="margin-top:1.25rem;">
+        I'm a life coach, wanderer, and letter-writer who believes deeply that you are not your story — you are the one telling it. This space is my love letter to the world.
+      </p>
+      <p class="about-body">
+        To the people still figuring it out. To the ones who feel a pull toward something more. To anyone who has ever whispered: <em>there has to be more to this.</em> There is.
+      </p>
+      <a href="./about.html" class="btn btn-dark" style="margin-top:1.75rem;display:inline-flex;">Read the full story</a>
+      <span class="about-sig">Love, Imaan Selene</span>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     TRAVEL SECTION
+     TO EDIT CITIES: change the city names in the spans
+     TO CHANGE PHOTO: replace src URLs in the polaroids
+════════════════════════════════════════════════════════ -->
+<section class="travel-section">
+  <svg style="position:absolute;top:0;right:0;width:340px;opacity:0.05;pointer-events:none;" viewBox="0 0 300 400" fill="none" aria-hidden="true">
+    <path d="M150 10 C80 60, 20 160, 30 280 C40 360, 150 390, 150 390 C150 390, 260 360, 270 280 C280 160, 220 60, 150 10Z" fill="white"/>
+    <path d="M150 80 L150 390" stroke="white" stroke-width="2" opacity="0.3"/>
+  </svg>
+
+  <div class="travel-grid">
+    <div>
+      <span class="travel-label reveal">letters from the road</span>
+      <h2 class="travel-h reveal d1">The world is<br><em>waiting.</em></h2>
+      <p class="travel-body reveal d2">
+        From Zambia's waterfalls to the cobblestones of Lisbon — Imaan travels and sends back dispatches. Journal entries, photographs, the quiet revelations that only come when you're somewhere new.
+      </p>
+      <div style="margin-top:2rem;" class="reveal d3">
+        <a href="./travel.html" class="btn btn-gold">Explore the series &nbsp;→</a>
+      </div>
+    </div>
+
+    <div class="reveal-right d1">
+      <p style="font-family:var(--font-body);font-size:0.65rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--sage);margin-bottom:1rem;">Cities visited</p>
+      <div>
+        <!-- TO EDIT: change city names here -->
+        <span class="city-pill" onclick="window.location='./travel.html'">Lusaka</span>
+        <span class="city-pill" onclick="window.location='./travel.html'">Livingstone</span>
+        <span class="city-pill" onclick="window.location='./travel.html'">Lisbon</span>
+        <span class="city-pill" onclick="window.location='./travel.html'">Porto</span>
+        <span class="city-pill" onclick="window.location='./travel.html'">Las Vegas</span>
+        <span class="city-pill" onclick="window.location='./travel.html'">Houston</span>
+        <span class="city-pill" onclick="window.location='./travel.html'">Halifax</span>
+        <span class="city-pill" onclick="window.location='./travel.html'">Miami</span>
+      </div>
+      <div class="travel-quote-block">
+        <p>Every city teaches you something you didn't know you needed to learn.</p>
+        <cite>— from the road</cite>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scattered polaroids -->
+  <div class="travel-polaroids reveal d2" aria-hidden="true">
+    <div class="t-pol" style="width:190px;left:4%;top:0;transform:rotate(-3deg);">
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80" alt="" style="height:150px;"/>
+      <span>Lusaka</span>
+    </div>
+    <div class="t-pol" style="width:215px;left:28%;top:18px;transform:rotate(2deg);">
+      <img src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=400&q=80" alt="" style="height:170px;"/>
+      <span>Lisbon</span>
+    </div>
+    <div class="t-pol" style="width:185px;left:57%;top:-8px;transform:rotate(-1.5deg);">
+      <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=400&q=80" alt="" style="height:148px;"/>
+      <span>Miami</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     PODCAST SECTION — TO EDIT: change text and links
+════════════════════════════════════════════════════════ -->
+<section class="podcast-section">
+  <div class="blob" style="width:500px;height:500px;background:var(--sage);top:-80px;right:-100px;opacity:0.11;"></div>
+  <div class="podcast-grid">
+
+    <div class="reveal-left">
+      <div class="podcast-cover">
+        <svg class="podcast-cover-leaf" viewBox="0 0 200 280" fill="none" aria-hidden="true">
+          <path d="M100 10 C60 40, 20 100, 30 180 C40 240, 100 270, 100 270 C100 270, 160 240, 170 180 C180 100, 140 40, 100 10Z" fill="white"/>
+        </svg>
+        <div class="podcast-cover-inner">
+          <div style="width:50px;height:1px;background:var(--gold);margin:0 auto 1.5rem;"></div>
+          <h3 class="podcast-cover-title">Love,<br>Imaan Selene</h3>
+          <span class="podcast-cover-sub">The Podcast</span>
+          <div style="width:35px;height:1px;background:var(--sage);margin:1.5rem auto 0;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal-right d1">
+      <span class="eyebrow-script">the podcast</span>
+      <h2 class="section-h">
+        Conversations that feel like<br>a <em>letter from a friend.</em>
+      </h2>
+      <p class="section-body">
+        Pull up a chair. Love, Imaan Selene is a podcast about growth, becoming, wandering, and the radical idea that your life is already miraculous — you just have to lean in.
+      </p>
+      <div style="margin-top:1.75rem;">
+        <!-- TO EDIT: replace # with your real podcast URLs -->
+        <a href="#" class="platform-pill">Spotify</a>
+        <a href="#" class="platform-pill">Apple Podcasts</a>
+        <a href="#" class="platform-pill">YouTube</a>
+      </div>
+      <div style="margin-top:2rem;">
+        <a href="./podcast.html" class="btn btn-dark">Listen now &nbsp;→</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     NEWSLETTER TEASER — TO EDIT: change text below
+════════════════════════════════════════════════════════ -->
+<section class="newsletter-section">
+  <svg style="position:absolute;top:2rem;left:3rem;opacity:0.06;width:110px;pointer-events:none;" viewBox="0 0 120 200" fill="none" aria-hidden="true">
+    <path d="M60 10 C30 40, 10 90, 15 150 C20 190, 60 200, 60 200 C60 200, 100 190, 105 150 C110 90, 90 40, 60 10Z" fill="var(--espresso)"/>
+    <path d="M60 40 L60 200" stroke="var(--espresso)" stroke-width="1.5" fill="none"/>
+  </svg>
+  <svg style="position:absolute;bottom:2rem;right:4rem;opacity:0.06;width:85px;transform:rotate(25deg);pointer-events:none;" viewBox="0 0 120 200" fill="none" aria-hidden="true">
+    <path d="M60 10 C30 40, 10 90, 15 150 C20 190, 60 200, 60 200 C60 200, 100 190, 105 150 C110 90, 90 40, 60 10Z" fill="var(--sage-dark)"/>
+  </svg>
+
+  <span class="envelope">✉️</span>
+  <span class="eyebrow-script reveal" style="display:block;margin-bottom:0.5rem;">coming soon</span>
+  <h2 class="newsletter-h reveal d1">Letters from <em>Imaan</em></h2>
+  <p class="newsletter-body reveal d2">
+    A personal dispatch — thoughts on growth, travel, becoming, and the beautiful undefined. Arriving in your inbox like a letter from a friend.
+  </p>
+  <a href="./newsletter.html" class="btn btn-dark reveal d3">Join the waitlist &nbsp;→</a>
+</section>
+
+</main>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     FOOTER — TO EDIT: change links and social URLs
+════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <span class="footer-wordmark">Love, Imaan Selene</span>
+      <p class="footer-tagline">A love letter to your undefined, miraculous self.</p>
+    </div>
+    <div>
+      <p class="footer-col-head">Explore</p>
+      <ul class="footer-links">
+        <li><a href="./coaching.html">Life Coaching</a></li>
+        <li><a href="./podcast.html">Podcast</a></li>
+        <li><a href="./travel.html">Travel Series</a></li>
+        <li><a href="./newsletter.html">Newsletter</a></li>
+        <li><a href="./about.html">About Imaan</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-head">Connect</p>
+      <ul class="footer-links">
+        <!-- TO EDIT: replace # with real social URLs -->
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Spotify</a></li>
+        <li><a href="#">Apple Podcasts</a></li>
+        <li><a href="#">YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Love, Imaan Selene. All rights reserved.</p>
+    <div class="footer-socials">
+      <a href="#">Instagram</a>
+      <a href="#">Spotify</a>
+      <a href="#">YouTube</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+//  INTERACTIONS — no need to edit anything below this line
+// ═══════════════════════════════════════════════════════════
+
+// Custom cursor
+const cursor = document.querySelector('.cursor');
+const ring   = document.querySelector('.cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+});
+(function animRing() {
+  rx += (mx - rx) * 0.1; ry += (my - ry) * 0.1;
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  requestAnimationFrame(animRing);
+})();
+document.querySelectorAll('a, button, .city-pill').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('grow'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('grow'));
+});
+
+// Nav scroll
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60), {passive:true});
+
+// Mobile nav
+const toggle    = document.querySelector('.nav-toggle');
+const mobileNav = document.querySelector('.mobile-nav');
+const closeBtn  = document.querySelector('.mobile-nav-close');
+toggle.addEventListener('click', () => mobileNav.classList.add('open'));
+closeBtn.addEventListener('click', () => mobileNav.classList.remove('open'));
+mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+
+// Scroll reveal
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => ro.observe(el));
+
+// Hero parallax
+const heroBg = document.querySelector('.hero-bg');
+window.addEventListener('scroll', () => {
+  if (scrollY < innerHeight * 1.2) heroBg.style.transform = `translateY(${scrollY * 0.18}px)`;
+}, {passive:true});
+</script>
 </body>
 </html>
