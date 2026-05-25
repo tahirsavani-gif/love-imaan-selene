@@ -177,17 +177,25 @@ nav.scrolled {
 .hero-bg {
   position: absolute; inset: 0;
   opacity: 0; animation: fadeIn 1.6s ease 0.2s forwards;
+  overflow: hidden;
 }
 .hero-bg img {
   width: 100%; height: 100%; object-fit: cover;
-  filter: saturate(0.7) brightness(0.88);
+  object-position: center center;
+  filter: saturate(0.82) brightness(0.96);
+  animation: kenBurns 18s ease-out forwards;
+  transform-origin: center center;
 }
-/* Fade the image INTO the linen at the bottom — seamless transition */
+@keyframes kenBurns {
+  from { transform: scale(1.06); }
+  to   { transform: scale(1.0); }
+}
+/* Fade the journal into the linen — left side heavy for text, bottom for scroll */
 .hero-bg::after {
   content: ''; position: absolute; inset: 0;
   background:
-    linear-gradient(115deg, rgba(244,236,228,0.95) 0%, rgba(244,236,228,0.7) 42%, rgba(244,236,228,0.05) 100%),
-    linear-gradient(to bottom, transparent 50%, rgba(244,236,228,0.6) 80%, rgba(244,236,228,1) 100%);
+    linear-gradient(105deg, rgba(244,236,228,0.97) 0%, rgba(244,236,228,0.82) 38%, rgba(244,236,228,0.28) 65%, rgba(244,236,228,0.08) 100%),
+    linear-gradient(to bottom, rgba(244,236,228,0.15) 0%, transparent 20%, transparent 65%, rgba(244,236,228,0.7) 85%, rgba(244,236,228,1) 100%);
 }
 .hero-content {
   position: relative; z-index: 10;
@@ -566,17 +574,8 @@ footer {
 ════════════════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-bg">
-    <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1400&q=80" alt="Imaan Selene" />
+    <img src="./assets/images/hero.png" alt="An open journal — Dear world, Love Imaan Selene" />
   </div>
-
-  <svg class="hero-ink" viewBox="0 0 300 300" fill="none" aria-hidden="true">
-    <circle cx="150" cy="150" r="138" stroke="#B8CFB4" stroke-width="0.8"
-      stroke-dasharray="870" stroke-dashoffset="870"
-      style="animation:inkDraw 2.8s ease 1.8s forwards;"/>
-    <circle cx="150" cy="150" r="112" stroke="#E1BA66" stroke-width="0.5" opacity="0.45"
-      stroke-dasharray="705" stroke-dashoffset="705"
-      style="animation:inkDraw2 2.8s ease 2.1s forwards;"/>
-  </svg>
 
   <div class="hero-content">
     <span class="hero-eyebrow">a love letter to your undefined self</span>
@@ -598,11 +597,7 @@ footer {
     </div>
   </div>
 
-  <!-- TO CHANGE PHOTO: replace src -->
-  <div class="hero-polaroid">
-    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80" alt="somewhere beautiful" />
-    <span>somewhere beautiful</span>
-  </div>
+
 </section>
 
 
