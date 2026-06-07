@@ -192,7 +192,7 @@ nav.scrolled {
 .paint-stroke {
   position: absolute;
   pointer-events: none;
-  /* Convert black to sage green #B8CFB4 using CSS filter */
+  mix-blend-mode: multiply;
   filter:
     brightness(0)
     saturate(100%)
@@ -200,8 +200,8 @@ nav.scrolled {
     sepia(18%)
     saturate(320%)
     hue-rotate(78deg)
-    brightness(1.05)
-    opacity(0.22);
+    brightness(1.12);
+  opacity: 0.28;
   z-index: 0;
 }
 
