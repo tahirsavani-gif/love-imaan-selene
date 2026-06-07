@@ -188,6 +188,23 @@ nav.scrolled {
   border: 1px solid rgba(184,207,180,0.6); padding: 0.35rem 0.9rem;
 }
 
+/* PAINT STROKE */
+.paint-stroke {
+  position: absolute;
+  pointer-events: none;
+  /* Convert black to sage green #B8CFB4 using CSS filter */
+  filter:
+    brightness(0)
+    saturate(100%)
+    invert(82%)
+    sepia(18%)
+    saturate(320%)
+    hue-rotate(78deg)
+    brightness(1.05)
+    opacity(0.22);
+  z-index: 0;
+}
+
 /* TICKER */
 .ticker-wrap {
   padding: 1rem 0; overflow: hidden;
@@ -401,6 +418,21 @@ footer { background: var(--espresso); padding: 4.5rem 5rem 2.5rem; color: var(--
   <div class="hero-bg">
     <img src="./assets/images/hero.png" alt="An open journal — Dear world, Love Imaan Selene" />
   </div>
+  <!-- Paint stroke — diagonal behind headline, top left to bottom right -->
+  <img
+    src="./assets/images/stroke.png"
+    alt=""
+    aria-hidden="true"
+    class="paint-stroke"
+    style="
+      width: 780px;
+      top: 18%;
+      left: -4%;
+      transform: rotate(18deg);
+      transform-origin: left center;
+    "
+  />
+
   <div class="hero-content">
     <span class="hero-eyebrow">a love letter to your self</span>
     <h1 class="hero-h1">
