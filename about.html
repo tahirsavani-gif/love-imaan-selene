@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About — Love, Imaan Selene</title>
-  <meta name="description" content="Meet Imaan Selene — life coach, podcaster, traveller, letter writer." />
+  <title>About | Love, Imaan Selene</title>
+  <meta name="description" content="Meet Imaan Selene: life coach, podcaster, traveller, letter writer." />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&family=Caveat:wght@400;600&display=swap" rel="stylesheet" />
 <style>
 :root{
@@ -92,7 +92,7 @@ nav.scrolled{background:rgba(244,236,228,0.92);backdrop-filter:blur(16px);paddin
 .b-spine-centre{position:absolute;left:0;top:0;bottom:0;width:20px;background:linear-gradient(to right,rgba(62,47,43,0.1),rgba(62,47,43,0.03),transparent);pointer-events:none;z-index:2;}
 .b-letter{position:relative;z-index:1;padding:2.25rem 2.25rem 2.25rem 2.75rem;height:100%;display:flex;flex-direction:column;}
 .b-letter-dear{font-family:var(--font-script);font-size:1.2rem;color:var(--gold-dark);display:block;margin-bottom:0.6rem;}
-.b-letter-text{font-family:var(--font-script);font-size:0.9rem;color:var(--espresso);line-height:1.95;flex:1;}
+.b-letter-text{font-family:var(--font-display);font-style:italic;font-size:0.92rem;color:var(--espresso);line-height:1.95;flex:1;}
 .b-letter-sig{font-family:var(--font-script);font-size:1.15rem;color:var(--gold-dark);display:block;margin-top:auto;padding-top:0.6rem;}
 .b-wax{position:absolute;bottom:1.1rem;right:1.4rem;width:34px;height:34px;border-radius:50%;border:1.5px solid rgba(225,186,102,0.6);display:flex;align-items:center;justify-content:center;font-family:var(--font-script);font-size:0.85rem;color:var(--gold-dark);background:rgba(225,186,102,0.08);z-index:3;}
 .b-page-num-right{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);font-family:var(--font-mono);font-size:0.55rem;color:var(--muted);opacity:0.4;z-index:3;}
@@ -110,6 +110,16 @@ nav.scrolled{background:rgba(244,236,228,0.92);backdrop-filter:blur(16px);paddin
 .belief-line{font-family:var(--font-display);font-size:clamp(1.4rem,2.5vw,2rem);font-weight:300;font-style:italic;color:var(--gold-dark);display:block;margin:2rem 0;opacity:0;transition:opacity 1s ease,transform 1s ease;transform:translateY(16px);}
 .belief-line.visible{opacity:1;transform:translateY(0);}
 .cta-wrap{text-align:center;}
+
+/* A FEW THINGS ABOUT ME */
+.about-wrap{max-width:720px;margin:0 auto;text-align:center;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem 3rem;margin-top:2.5rem;text-align:left;}
+.about-item{display:flex;flex-direction:column;gap:0.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(184,207,180,0.35);}
+.about-q{font-family:var(--font-mono);font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
+.about-a{font-family:var(--font-display);font-style:italic;font-size:1.15rem;font-weight:300;color:var(--espresso);line-height:1.4;}
+.about-ps{font-family:var(--font-script);font-size:1.1rem;color:var(--muted);margin-top:2.5rem;text-align:center;opacity:0.8;}
+
+@media(max-width:680px){.about-grid{grid-template-columns:1fr;}}
 
 footer{background:var(--espresso);padding:4rem 5rem 2.5rem;color:var(--linen);margin-top:8rem;}
 .footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:4rem;padding-bottom:3rem;border-bottom:1px solid rgba(184,207,180,0.15);}
@@ -190,9 +200,7 @@ footer{background:var(--espresso);padding:4rem 5rem 2.5rem;color:var(--linen);ma
         <div class="b-cover-border"></div>
         <span class="b-cover-eyebrow">Love, Imaan Selene</span>
         <div>
-          <p class="b-cover-quote">
-            We're floating<br>on a <em>giant rock.</em>
-          </p>
+          <p class="b-cover-quote">About <em>Imaan</em></p>
         </div>
         <div class="b-cover-bottom">
           <div class="b-cover-rule"></div>
@@ -224,12 +232,13 @@ footer{background:var(--espresso);padding:4rem 5rem 2.5rem;color:var(--linen);ma
           <div class="b-letter">
             <span class="b-letter-dear">Dear Readers,</span>
             <p class="b-letter-text">
-              Consider this my pocket page of letters to the world. Letters to the future, letters from the past, letters to myself, letters to you — all made with love, by yours truly.<br><br>
-              Feel free to explore each corner, from my podcast to my travel series to some of the insights I've gained through my experiences.<br><br>
-              I am keen on finding and creating magic in life and approaching the world with a sense of grace and gratitude. I know there are times when grace and gratitude feel out of reach. Life can be dramatic, and things can get unfavourable. Sometimes, things can even feel hopeless. But a feeling is not a truth.<br><br>
-              The magic, beauty, and mysticism of life are all around us. We just have to stop to notice it. Stick around, and let's uncover it together.
+              Consider this my pocket page of letters to the world. Letters to the future, letters to the past, letters to myself, letters to you. . . all made with love, by yours truly.<br><br>
+              Feel free to explore each corner, from my podcast to my travel series to some of the insight I've gained through my experiences.<br><br>
+              I am keen on finding and creating magic in life and approaching the world with a sense of grace and gratitude. It's a continuous journey, and there are times when grace and gratitude feel out of reach. Life can be dramatic, and things can get unfavourable (to say the least). Sometimes, things can feel hopeless. But that's all it is, a feeling...not a truth.<br><br>
+              My content is aimed at those of you who want to receive the beauty that life has to offer, even when things do feel hopeless. I hope through the stories I share, you see a little bit of yourself and have the space to reflect, heal, grow and potentially even redefine yourself and your approach to life. After all, we only have one to live...so why not take a shot on yourself?<br><br>
+              Magic and beauty are all around us; we just have to stop to notice it. Stick around, and let's uncover it together.
             </p>
-            <span class="b-letter-sig">Love, Imaan Selene ♡</span>
+            <span class="b-letter-sig">With love, Imaan Selene ♡</span>
           </div>
           <div class="b-wax">I</div>
           <span class="b-page-num-right">1</span>
@@ -247,13 +256,36 @@ footer{background:var(--espresso);padding:4rem 5rem 2.5rem;color:var(--linen);ma
 
   <div class="breathe-lg"></div>
 
-  <div class="beliefs-wrap">
-    <span class="beliefs-label fade-in">things she believes</span>
-    <h2 class="beliefs-heading fade-in d1">The philosophy<br>behind the <em>work.</em></h2>
-    <span class="belief-line">"Your value is inherent."</span>
-    <span class="belief-line">"A feeling is not a truth."</span>
-    <span class="belief-line">"You are the greatest love of your life."</span>
-    <span class="belief-line">"The world is yours if you decide it is."</span>
+  <!-- A FEW THINGS ABOUT ME -->
+  <div class="about-wrap fade-in">
+    <span class="beliefs-label">a few things about me</span>
+    <div class="about-grid">
+      <div class="about-item fade-in d1">
+        <span class="about-q">The first thing I do in the morning</span>
+        <span class="about-a">A guided meditation and 3 deep breaths.</span>
+      </div>
+      <div class="about-item fade-in d2">
+        <span class="about-q">The thing I always manage to lose</span>
+        <span class="about-a">My phone.</span>
+      </div>
+      <div class="about-item fade-in d1">
+        <span class="about-q">I feel most like myself when</span>
+        <span class="about-a">I am dancing alone.</span>
+      </div>
+      <div class="about-item fade-in d2">
+        <span class="about-q">I am currently learning</span>
+        <span class="about-a">Muay Thai.</span>
+      </div>
+      <div class="about-item fade-in d1">
+        <span class="about-q">Something people don't expect about me</span>
+        <span class="about-a">I can rap every lyric of Look At Me Now.</span>
+      </div>
+      <div class="about-item fade-in d2">
+        <span class="about-q">I knew I was meant to do this work when</span>
+        <span class="about-a">I attended a Tony Robbins seminar in 2023 and have never been the same since.</span>
+      </div>
+    </div>
+    <p class="about-ps fade-in d3">Oh, and my coffee order is an iced vanilla latte, almond milk, less vanilla. In case you were wondering.</p>
   </div>
 
   <div class="breathe-lg"></div>
