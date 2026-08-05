@@ -37,6 +37,7 @@
     .polaroid::before{content:'';position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:48px;height:14px;background:rgba(184,207,180,0.55);opacity:0.85;}
     .polaroid:nth-child(even)::before{background:rgba(225,186,102,0.4);}
     .polaroid img{width:200px;height:150px;object-fit:cover;display:block;filter:saturate(0.85) sepia(0.08);}
+    .polaroid-caption{font-family:'Caveat',cursive;font-size:0.85rem;color:var(--espresso);opacity:0.65;text-align:center;margin-top:4px;}
     .polaroid-placeholder{width:200px;height:150px;background:linear-gradient(135deg,var(--sage),var(--sage-dark));display:flex;align-items:center;justify-content:center;}
     .polaroid-placeholder span{font-family:var(--font-mono);font-size:0.48rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.4);}
     .city-nav{display:flex;justify-content:space-between;align-items:center;padding:2rem 3rem;border-top:1px solid rgba(184,207,180,0.3);max-width:760px;margin:0 auto 4rem;}
@@ -56,8 +57,7 @@
 </nav>
 
 <section class="city-hero">
-  <div class="city-hero-placeholder"></div>
-  <!-- Replace with: <img class="city-hero-img" src="./assets/images/lusaka-hero.jpg" style="opacity:1;"> -->
+  <img class="city-hero-img" src="./assets/images/lusaka-hero.jpg" style="opacity:1;">
   <div class="hero-content">
     <span class="hero-series">The Travel Series</span>
     <h1 class="hero-city">Lusaka</h1>
@@ -81,13 +81,20 @@
 
 <div class="photo-strip">
   <div class="polaroid" style="transform:rotate(-2deg);">
-    <div class="polaroid-placeholder"><span>lusaka photo</span></div>
+    <img src="./assets/images/lusaka-p1.jpg" alt="Rolo"><p class="polaroid-caption">Rolo</p>
   </div>
   <div class="polaroid" style="transform:rotate(1.5deg);">
-    <div class="polaroid-placeholder"><span>lusaka photo</span></div>
+    <img src="./assets/images/lusaka-p2.jpg" alt="Trifle"><p class="polaroid-caption">trifle, a family favourite</p>
   </div>
   <div class="polaroid" style="transform:rotate(-1deg);">
-    <div class="polaroid-placeholder"><span>lusaka photo</span></div>
+    <img src="./assets/images/lusaka-p3.jpg" alt="Lusaka sunset"><p class="polaroid-caption">early to rise, early to sleep</p>
+    <div class="polaroid" style="transform:rotate(2deg);">
+    <img src="./assets/images/lusaka-p4.jpg" alt="Grandpa at the family home">
+    <p class="polaroid-caption">home</p>
+  </div>
+  <div class="polaroid" style="transform:rotate(-1.5deg);">
+    <img src="./assets/images/lusaka-p5.jpg" alt="Uncle">
+    <p class="polaroid-caption">my uncle</p>
   </div>
 </div>
 
