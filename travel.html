@@ -417,7 +417,7 @@ footer{background:var(--espresso);padding:4rem 5rem 2.5rem;color:var(--linen);}
     <div class="timeline-line"></div>
     
   <!-- LUSAKA -->
-  <div class="city-section " id="city-lusaka">
+  <div class="city-section " id="city-lusaka" onclick="window.location='./lusaka.html'" style="cursor:pointer;">
     <div class="city-card-col">
       <div class="postcard-wrap fade-left">
         <div class="postcard-inner">
@@ -459,7 +459,7 @@ footer{background:var(--espresso);padding:4rem 5rem 2.5rem;color:var(--linen);}
   <div class="city-divider"></div>
 
   <!-- LIVINGSTONE -->
-  <div class="city-section reverse" id="city-livingstone">
+  <div class="city-section reverse" id="city-livingstone" onclick="window.location='./livingstone.html'" style="cursor:pointer;">
     <div class="city-card-col">
       <div class="postcard-wrap fade-right">
         <div class="postcard-inner">
@@ -501,7 +501,7 @@ footer{background:var(--espresso);padding:4rem 5rem 2.5rem;color:var(--linen);}
   <div class="city-divider"></div>
 
   <!-- LISBON -->
-  <div class="city-section " id="city-lisbon">
+  <div class="city-section " id="city-lisbon" onclick="window.location='./lisbon.html'" style="cursor:pointer;">
     <div class="city-card-col">
       <div class="postcard-wrap fade-left">
         <div class="postcard-inner">
@@ -543,7 +543,7 @@ footer{background:var(--espresso);padding:4rem 5rem 2.5rem;color:var(--linen);}
   <div class="city-divider"></div>
 
   <!-- PORTO -->
-  <div class="city-section reverse" id="city-porto">
+  <div class="city-section reverse" id="city-porto" onclick="window.location='./porto.html'" style="cursor:pointer;">
     <div class="city-card-col">
       <div class="postcard-wrap fade-right">
         <div class="postcard-inner">
@@ -585,7 +585,7 @@ footer{background:var(--espresso);padding:4rem 5rem 2.5rem;color:var(--linen);}
   <div class="city-divider"></div>
 
   <!-- LAS VEGAS -->
-  <div class="city-section " id="city-lasvegas">
+  <div class="city-section " id="city-lasvegas" onclick="window.location='./lasvegas.html'" style="cursor:pointer;">
     <div class="city-card-col">
       <div class="postcard-wrap fade-left">
         <div class="postcard-inner">
@@ -627,7 +627,7 @@ footer{background:var(--espresso);padding:4rem 5rem 2.5rem;color:var(--linen);}
   <div class="city-divider"></div>
 
   <!-- HOUSTON -->
-  <div class="city-section reverse" id="city-houston">
+  <div class="city-section reverse" id="city-houston" onclick="window.location='./houston.html'" style="cursor:pointer;">
     <div class="city-card-col">
       <div class="postcard-wrap fade-right">
         <div class="postcard-inner">
@@ -832,9 +832,7 @@ const nodeObserver = new IntersectionObserver(entries => {
 document.querySelectorAll('.timeline-node').forEach(node => nodeObserver.observe(node));
 
 // Postcard flip on tap (mobile)
-document.querySelectorAll('.postcard-wrap').forEach(card => {
-  card.addEventListener('click', () => card.classList.toggle('flipped'));
-});
+// City sections navigate on click
 </script>
 </body>
 </html>
