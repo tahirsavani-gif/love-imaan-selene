@@ -17,7 +17,7 @@
     .nav-back{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(244,236,228,0.55);text-decoration:none;transition:color 0.3s;}
     .nav-back:hover{color:var(--gold);}
     .city-hero{position:relative;height:100vh;background:var(--espresso);display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;}
-    .city-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;display:block;}
+    .city-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center center;display:block;background:var(--espresso);}
     .city-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,5,0,0.4) 0%,rgba(10,5,0,0.15) 50%,rgba(244,236,228,1) 100%);}
     .hero-content{position:relative;z-index:3;text-align:center;}
     .hero-series{font-family:var(--font-mono);font-size:0.58rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.85);display:block;margin-bottom:1.5rem;text-shadow:0 1px 4px rgba(0,0,0,0.5);}
@@ -62,7 +62,7 @@
 </nav>
 
 <section class="city-hero">
-  <img class="city-hero-img" src="./assets/images/halifax-hero.jpg" alt="Waves crashing on the rocks at Peggy's Cove"/>
+  <img class="city-hero-img" src="./assets/images/halifax-hero.jpg" alt="Peggy's Point Lighthouse at Peggy's Cove"/>
   <div class="city-hero-overlay"></div>
   <div class="hero-content">
     <span class="hero-series">The Travel Series</span>
