@@ -113,6 +113,12 @@ nav.on-linen.scrolled{background:rgba(244,236,228,0.92);border-bottom:1px solid 
   overflow:hidden;
 }
 .city-section.reverse{}
+.city-section:not(.reverse) .city-card-col{order:1;}
+.city-section:not(.reverse) .timeline-node{order:2;}
+.city-section:not(.reverse) .city-name-col{order:3;}
+.city-section.reverse .city-card-col{order:3;}
+.city-section.reverse .timeline-node{order:2;}
+.city-section.reverse .city-name-col{order:1;}
 
 /* Postcard column */
 .city-card-col{
@@ -455,14 +461,7 @@ footer{background:var(--espresso);padding:4rem 5rem 2.5rem;color:var(--linen);}
       </div>
     </div>
 
-    <div class="city-name-col">
-      <div>
-        <div class="city-big-name">Lusaka</div>
-        
-      </div>
-    </div>
-  </div>
-      <!-- TIMELINE NODE — centre of page -->
+    <!-- TIMELINE NODE — centre of page -->
     <div class="timeline-node" data-city="Lusaka" data-coords="15.4167° S, 28.2833° E">
       <div class="tl-dot"></div>
       <div class="tl-label">
@@ -471,7 +470,14 @@ footer{background:var(--espresso);padding:4rem 5rem 2.5rem;color:var(--linen);}
       </div>
     </div>
 
-<div class="city-divider"></div>
+    <div class="city-name-col">
+      <div>
+        <div class="city-big-name">Lusaka</div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="city-divider"></div>
 
   <!-- LIVINGSTONE -->
   <div class="city-section reverse" id="city-livingstone" onclick="window.location='./livingstone.html'" style="cursor:pointer;">
@@ -541,14 +547,7 @@ footer{background:var(--espresso);padding:4rem 5rem 2.5rem;color:var(--linen);}
       </div>
     </div>
 
-    <div class="city-name-col">
-      <div>
-        <div class="city-big-name">Lisbon</div>
-        
-      </div>
-    </div>
-  </div>
-      <!-- TIMELINE NODE — centre of page -->
+    <!-- TIMELINE NODE — centre of page -->
     <div class="timeline-node" data-city="Lisbon" data-coords="38.7223° N, 9.1393° W">
       <div class="tl-dot"></div>
       <div class="tl-label">
@@ -557,7 +556,14 @@ footer{background:var(--espresso);padding:4rem 5rem 2.5rem;color:var(--linen);}
       </div>
     </div>
 
-<div class="city-divider"></div>
+    <div class="city-name-col">
+      <div>
+        <div class="city-big-name">Lisbon</div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="city-divider"></div>
 
   <!-- PORTO -->
   <div class="city-section reverse" id="city-porto" onclick="window.location='./porto.html'" style="cursor:pointer;">
@@ -627,14 +633,7 @@ footer{background:var(--espresso);padding:4rem 5rem 2.5rem;color:var(--linen);}
       </div>
     </div>
 
-    <div class="city-name-col">
-      <div>
-        <div class="city-big-name">Las Vegas</div>
-        
-      </div>
-    </div>
-  </div>
-      <!-- TIMELINE NODE — centre of page -->
+    <!-- TIMELINE NODE — centre of page -->
     <div class="timeline-node" data-city="Las Vegas" data-coords="36.1699° N, 115.1398° W">
       <div class="tl-dot"></div>
       <div class="tl-label">
@@ -643,7 +642,14 @@ footer{background:var(--espresso);padding:4rem 5rem 2.5rem;color:var(--linen);}
       </div>
     </div>
 
-<div class="city-divider"></div>
+    <div class="city-name-col">
+      <div>
+        <div class="city-big-name">Las Vegas</div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="city-divider"></div>
 
   <!-- HOUSTON -->
   <div class="city-section reverse" id="city-houston" onclick="window.location='./houston.html'" style="cursor:pointer;">
@@ -714,14 +720,7 @@ footer{background:var(--espresso);padding:4rem 5rem 2.5rem;color:var(--linen);}
       </div>
     </div>
 
-    <div class="city-name-col">
-      <div>
-        <div class="city-big-name">Halifax</div>
-      </div>
-    </div>
-  </div>
-
-      <!-- TIMELINE NODE -->
+    <!-- TIMELINE NODE -->
     <div class="timeline-node" data-city="Halifax" data-coords="44.6488° N, 63.5752° W">
       <div class="tl-dot"></div>
       <div class="tl-label">
@@ -730,7 +729,14 @@ footer{background:var(--espresso);padding:4rem 5rem 2.5rem;color:var(--linen);}
       </div>
     </div>
 
-<div class="city-divider"></div>
+    <div class="city-name-col">
+      <div>
+        <div class="city-big-name">Halifax</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="city-divider"></div>
 
     <!-- COMING SOON 1 -->
     <div class="city-section" id="city-soon1">
