@@ -99,41 +99,6 @@
   document.querySelector('.mobile-nav-close').addEventListener('click', () => document.querySelector('.mobile-nav').classList.remove('open'));
 </script>
 
-<script>
-async function submitEmail(email, btn, originalText) {
-  try {
-    const res = await fetch('https://api.beehiiv.com/v2/publications/pub_29185d00-96a7-4155-a7cb-f2c928a2309a/subscriptions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer pub_29185d00-96a7-4155-a7cb-f2c928a2309a'
-      },
-      body: JSON.stringify({ email: email, reactivate_existing: true, send_welcome_email: true })
-    });
-    if (res.ok) {
-      btn.textContent = 'You\'re on the list! ✓';
-      btn.style.background = 'var(--sage-dark)';
-    } else {
-      btn.textContent = originalText;
-      alert('Something went wrong. Please try again.');
-    }
-  } catch(e) {
-    btn.textContent = originalText;
-  }
-}
 
-document.querySelectorAll('.notify-btn, .form-btn').forEach(btn => {
-  btn.addEventListener('click', function() {
-    const input = this.closest('.notify-form, .form-row').querySelector('input[type="email"]');
-    if (!input || !input.value || !input.value.includes('@')) {
-      input.style.borderColor = 'red';
-      return;
-    }
-    const original = this.textContent;
-    this.textContent = 'Sending...';
-    submitEmail(input.value, this, original);
-  });
-});
-</script>
 </body>
 </html>
